@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="description" content="Gymtwin is a gym streak tracker for iPhone. Log a workout or a rest-day check-in every day and your pixel-art gym twin grows through five levels, from Beginner to Beast Mode. Skip too often and it gets tired and shrinks back.">
+    <meta name="keywords" content="gym streak tracker, workout tracker, gym habit app, workout log, fitness streak, pixel art, gym motivation, iphone workout app">
+    <meta name="author" content="Asım Can Yağız">
+
+    <!-- Canonical (GitHub Pages project site) -->
+    <link rel="canonical" href="https://asimcanyagiz.github.io/Gymtwin-Website/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gymtwin">
+    <meta property="og:url" content="https://asimcanyagiz.github.io/Gymtwin-Website/">
+    <meta property="og:title" content="Gymtwin: show up, and your twin grows">
+    <meta property="og:description" content="A gym streak tracker with a pixel-art twin that grows from Beginner to Beast Mode when you train, and gets tired when you skip. Coming soon to the App Store.">
+    <meta property="og:image" content="https://asimcanyagiz.github.io/Gymtwin-Website/Assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gymtwin: show up, and your twin grows">
+    <meta name="twitter:description" content="A gym streak tracker with a pixel-art twin that grows when you train and gets tired when you skip. Coming soon to the App Store.">
+    <meta name="twitter:image" content="https://asimcanyagiz.github.io/Gymtwin-Website/Assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
+    <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
+
+    <!-- Font: Nunito (the web stand-in for the app's SF Pro Rounded) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Gymtwin: Gym Streak Tracker with a Pixel Twin for iPhone</title>
+</head>
+<body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- Navigation Bar: brand + menu + CTA -->
+    <nav class="navbar" aria-label="Main">
+        <div class="container navbar-container">
+            <a href="./" class="navbar-brand" aria-label="Gymtwin home">
+                <img src="Assets/icon.png" alt="" class="navbar-logo" width="38" height="38">
+                <span class="navbar-name">Gymtwin</span>
+            </a>
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="#levels" class="navbar-link">Levels</a>
+                <a href="#streak" class="navbar-link">How it works</a>
+                <a href="#features" class="navbar-link">Features</a>
+                <a href="contact.html" class="navbar-link">Support</a>
+                <a href="#get" class="navbar-cta">Coming soon</a>
+            </div>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbarMenu">
+                <span class="navbar-toggle-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+    <!-- ============================= HERO ============================= -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-eyebrow"><span aria-hidden="true">🔥</span> Gym streak tracker for iPhone</span>
+                <h1 class="hero-title">Show up.<br><span class="highlight">Your twin grows.</span></h1>
+                <p class="hero-subtitle">
+                    Gymtwin turns your training plan into a daily streak. Log a workout on gym days,
+                    check in on rest days, and your pixel twin levels up from Beginner to Beast Mode.
+                    Skip too often and it gets tired, then shrinks back.
+                    <strong>A few taps a day keep it strong.</strong>
+                </p>
+                <div class="hero-cta">
+                    <!-- Store badge placeholder: js/main.js turns it into Apple's badge once APP_STORE_URL is set -->
+                    <a class="store-badge" data-store-badge>
+                        <img src="Assets/icon.png" alt="" class="store-badge__icon" width="40" height="40">
+                        <span class="store-badge__text"><small>Coming soon</small><strong>on the App Store</strong></span>
+                    </a>
+                    <span class="hero-note">For iPhone · Subscription</span>
+                </div>
+            </div>
+
+            <!-- Twin demo: a small copy of the app's home screen you can play with -->
+            <div class="demo card" id="twinDemo" role="group" aria-labelledby="demoTitle">
+                <h2 id="demoTitle" class="sr-only">Try the streak</h2>
+                <div class="demo-top">
+                    <span class="chip chip--level" data-demo="level">Lv 1 · Beginner</span>
+                    <span class="chip chip--tired" data-demo="tired" hidden></span>
+                    <span class="chip chip--streak" data-demo="streak">🔥 0</span>
+                </div>
+
+                <div class="stage">
+                    <span class="stage-tag">Your twin</span>
+                    <span class="stage-zzz" aria-hidden="true">💤</span>
+                    <div class="stage-twin">
+                        <div class="sprite" role="img" aria-label="Your twin at level 1, Beginner"
+                             style="background-image: url('Assets/sprites/twin-lv1-idle.png'); --frames: 6;"></div>
+                    </div>
+                    <span class="stage-flash" aria-hidden="true"></span>
+                </div>
+
+                <div class="xp">
+                    <div class="xp-row"><span>XP</span><span data-demo="xp-label">Next: Starter Pump</span></div>
+                    <div class="xp-bar" role="progressbar" aria-label="XP to the next level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <span class="xp-fill"></span>
+                    </div>
+                </div>
+
+                <!-- Week strip: 💪 gym day, 🌙 rest day -->
+                <ul class="week" aria-label="This week">
+                    <li>M<span class="dot" aria-hidden="true">💪</span></li>
+                    <li>T<span class="dot" aria-hidden="true">🌙</span></li>
+                    <li>W<span class="dot" aria-hidden="true">💪</span></li>
+                    <li>T<span class="dot" aria-hidden="true">🌙</span></li>
+                    <li>F<span class="dot" aria-hidden="true">💪</span></li>
+                    <li>S<span class="dot" aria-hidden="true">💪</span></li>
+                    <li>S<span class="dot" aria-hidden="true">🌙</span></li>
+                </ul>
+
+                <p class="demo-day" data-demo="day">Today: <strong>Monday</strong> · gym day</p>
+
+                <div class="demo-actions">
+                    <button type="button" class="btn btn--primary btn--block" data-action="checkin" hidden>Rest check-in</button>
+                    <button type="button" class="btn btn--primary btn--block" data-action="workout">Log workout</button>
+                    <div class="demo-actions-row">
+                        <button type="button" class="btn btn--secondary" data-action="skip">Skip today</button>
+                    </div>
+                </div>
+
+                <p class="demo-status" data-demo="status" aria-live="polite">Log a workout to start your streak.</p>
+                <p class="demo-caption">A simplified preview of the real streak rules.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= LEVELS ============================= -->
+    <section class="section levels" id="levels">
+        <div class="container">
+            <header class="section-head">
+                <span class="section-kicker">Five levels</span>
+                <h2 class="section-title">One twin. Five forms.</h2>
+                <p class="section-subtitle">
+                    Workouts earn XP from the minutes you train. Fill the bar and your twin evolves
+                    in a full-screen scene. Experienced lifters can start a level or two higher.
+                </p>
+            </header>
+
+            <ol class="ladder">
+                <li class="ladder-item">
+                    <div class="sprite" role="img" aria-label="Level 1 twin, Beginner"
+                         style="background-image: url('Assets/sprites/twin-lv1-idle.png'); --frames: 6;"></div>
+                    <div class="ladder-step">
+                        <span class="ladder-lv">Lv 1</span>
+                        <h3>Beginner</h3>
+                        <p>Day one. Everyone starts somewhere.</p>
+                    </div>
+                </li>
+                <li class="ladder-item">
+                    <div class="sprite" role="img" aria-label="Level 2 twin, Starter Pump"
+                         style="background-image: url('Assets/sprites/twin-lv2-idle.png'); --frames: 7;"></div>
+                    <div class="ladder-step">
+                        <span class="ladder-lv">Lv 2</span>
+                        <h3>Starter Pump</h3>
+                        <p>The first weeks of showing up start to show.</p>
+                    </div>
+                </li>
+                <li class="ladder-item">
+                    <div class="sprite" role="img" aria-label="Level 3 twin, Consistent Grinder"
+                         style="background-image: url('Assets/sprites/twin-lv3-idle.png'); --frames: 6;"></div>
+                    <div class="ladder-step">
+                        <span class="ladder-lv">Lv 3</span>
+                        <h3>Consistent Grinder</h3>
+                        <p>Training is a habit now.</p>
+                    </div>
+                </li>
+                <li class="ladder-item">
+                    <div class="sprite" role="img" aria-label="Level 4 twin, Iron Mode"
+                         style="background-image: url('Assets/sprites/twin-lv4-idle.png'); --frames: 8;"></div>
+                    <div class="ladder-step">
+                        <span class="ladder-lv">Lv 4</span>
+                        <h3>Iron Mode</h3>
+                        <p>Months of steady work.</p>
+                    </div>
+                </li>
+                <li class="ladder-item ladder-item--top">
+                    <div class="sprite" role="img" aria-label="Level 5 twin, Beast Mode"
+                         style="background-image: url('Assets/sprites/twin-lv5-idle.png'); --frames: 6;"></div>
+                    <div class="ladder-step">
+                        <span class="ladder-lv">Lv 5</span>
+                        <h3>Beast Mode</h3>
+                        <p>The long game, fully paid off.</p>
+                    </div>
+                </li>
+            </ol>
+            <p class="levels-note">Every level brings six new moves for your twin to show off.</p>
+        </div>
+    </section>
+
+    <!-- ============================= STREAK RULES ============================= -->
+    <section class="section" id="streak">
+        <div class="container">
+            <header class="section-head">
+                <span class="section-kicker">How the streak works</span>
+                <h2 class="section-title">Every day counts. Rest days too.</h2>
+                <p class="section-subtitle">Plan your training days once. Gymtwin tells you what today needs.</p>
+            </header>
+
+            <div class="rules-grid">
+                <article class="rule card">
+                    <span class="rule-icon" aria-hidden="true">💪</span>
+                    <h3>Gym days</h3>
+                    <p>Pick the days you train. On those days, log a workout of 10 minutes or more.</p>
+                </article>
+                <article class="rule rule--rest card">
+                    <span class="rule-icon" aria-hidden="true">🌙</span>
+                    <h3>Rest days</h3>
+                    <p>On your other days, a quick rest check-in keeps the streak alive. A workout counts too.</p>
+                </article>
+                <article class="rule card">
+                    <span class="rule-icon" aria-hidden="true">🕒</span>
+                    <h3>Your day ends at 3 AM</h3>
+                    <p>A late session counts for the day it started, and the day doesn't close until 3:00 AM.</p>
+                </article>
+            </div>
+
+            <!-- What happens after a missed day: tired, then one of two outcomes -->
+            <div class="miss">
+                <h3 class="miss-title">Missed a day?</h3>
+                <div class="miss-flow">
+                    <div class="miss-step miss-step--tired card">
+                        <div class="sprite" role="img" aria-label="A tired, grayed-out twin"
+                             style="background-image: url('Assets/sprites/twin-lv3-idle.png'); --frames: 6;"></div>
+                        <div>
+                            <h4>Your twin gets tired</h4>
+                            <p>The streak resets, and you have 3 days to bounce back.</p>
+                        </div>
+                    </div>
+                    <span class="miss-arrow" aria-hidden="true">→</span>
+                    <div class="miss-outcomes">
+                        <div class="miss-step card">
+                            <div class="sprite" role="img" aria-label="The twin back to full color"
+                                 style="background-image: url('Assets/sprites/twin-lv3-idle.png'); --frames: 6;"></div>
+                            <div>
+                                <h4>Train within 3 days</h4>
+                                <p>Your twin recovers and keeps its level.</p>
+                            </div>
+                        </div>
+                        <div class="miss-step miss-step--shrink card">
+                            <div class="sprite" role="img" aria-label="The twin one level smaller"
+                                 style="background-image: url('Assets/sprites/twin-lv2-idle.png'); --frames: 7;"></div>
+                            <div>
+                                <h4>No workout in 3 days</h4>
+                                <p>Your twin shrinks back one level. Beginners can't shrink further.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= FEATURES ============================= -->
+    <section class="section" id="features">
+        <div class="container">
+            <header class="section-head">
+                <span class="section-kicker">Inside the app</span>
+                <h2 class="section-title">Made for the daily habit</h2>
+            </header>
+
+            <div class="features-grid">
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">⚡</div>
+                    <h3>Log in about 10 seconds</h3>
+                    <p>Pick the body regions you trained, set the time, and say how it felt. Done.</p>
+                </article>
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">⏱️</div>
+                    <h3>Live workouts</h3>
+                    <p>Track sets, weight and reps as you go, with a rest timer between sets. If the app closes mid-workout, pick up where you left off.</p>
+                </article>
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">✨</div>
+                    <h3>Evolution scenes</h3>
+                    <p>When your twin levels up you get the full moment: a glow, a flash, and the new form. Tap to speed it up.</p>
+                </article>
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">❤️</div>
+                    <h3>Apple Health</h3>
+                    <p>Pre-fill workouts and body measurements from Health. Gymtwin only reads, and body measurements from Health stay on your phone.</p>
+                </article>
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">☁️</div>
+                    <h3>Back up with Apple</h3>
+                    <p>Optional. Sign in with Apple to keep your twin when you switch phones. Skip it and Gymtwin works the same; your progress just stays with this phone.</p>
+                </article>
+                <article class="feature card">
+                    <div class="feature-icon" aria-hidden="true">🔔</div>
+                    <h3>Streak reminders</h3>
+                    <p>A heads-up when today still needs a workout or a check-in, so a busy day doesn't cost you the streak.</p>
+                </article>
+                <article class="feature feature--wide card">
+                    <div>
+                        <div class="feature-icon" aria-hidden="true">🎨</div>
+                        <h3>Pick your twin</h3>
+                        <p>Choose one of five looks and give your twin a name. It's with you from the first workout.</p>
+                    </div>
+                    <div class="feature-looks">
+                        <div class="sprite" role="img" aria-label="Twin look 1" style="background-image: url('Assets/sprites/twin-look-1.png'); --frames: 6;"></div>
+                        <div class="sprite" role="img" aria-label="Twin look 2" style="background-image: url('Assets/sprites/twin-look-2.png'); --frames: 6;"></div>
+                        <div class="sprite" role="img" aria-label="Twin look 3" style="background-image: url('Assets/sprites/twin-look-3.png'); --frames: 6;"></div>
+                        <div class="sprite" role="img" aria-label="Twin look 4" style="background-image: url('Assets/sprites/twin-look-4.png'); --frames: 6;"></div>
+                        <div class="sprite" role="img" aria-label="Twin look 5" style="background-image: url('Assets/sprites/twin-look-5.png'); --frames: 6;"></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= PRIVACY BAND ============================= -->
+    <section class="section" id="privacy" aria-labelledby="privacyTitle">
+        <div class="container">
+            <div class="privacy-band card">
+                <h2 id="privacyTitle">Your Health data stays on your phone.</h2>
+                <ul class="privacy-points">
+                    <li><span aria-hidden="true">❤️</span><p>Gymtwin reads Apple Health and never writes to it. Height, weight, body fat, sex and birth date from Health are never uploaded.</p></li>
+                    <li><span aria-hidden="true">🚫</span><p>No ads, no tracking across apps and websites, and we never sell your data.</p></li>
+                    <li><span aria-hidden="true">🗑️</span><p>Delete my data in Settings removes your progress from our servers and from your phone.</p></li>
+                </ul>
+                <a href="privacy.html">Read the privacy policy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= FINAL CTA ============================= -->
+    <section class="section final-cta" id="get">
+        <div class="container">
+            <div class="sprite" role="img" aria-label="A Beast Mode twin raising a fist"
+                 style="background-image: url('Assets/sprites/twin-lv5-idle.png'); --frames: 6;"></div>
+            <h2>Your twin is waiting.</h2>
+            <p>Gymtwin is coming soon to the App Store for iPhone.</p>
+            <a class="store-badge" data-store-badge>
+                <img src="Assets/icon.png" alt="" class="store-badge__icon" width="40" height="40">
+                <span class="store-badge__text"><small>Coming soon</small><strong>on the App Store</strong></span>
+            </a>
+            <p class="fine-print">Gymtwin is an auto-renewing subscription (yearly or monthly). Prices are shown in the app before you buy.</p>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="Assets/icon.png" alt="" class="footer-logo" width="44" height="44">
+                    <div>
+                        <span class="footer-name">Gymtwin</span>
+                        <span class="footer-tag">Gym streak tracker for iPhone</span>
+                    </div>
+                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="#features">Features</a>
+                    <a href="contact.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </nav>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Asım Can Yağız. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

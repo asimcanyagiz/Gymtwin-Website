@@ -1,0 +1,639 @@
+/* =====================================================================
+   Gymtwin - Landing Site Styles
+   Aesthetic: the app's own Duolingo-style language. White canvas,
+   one orange (#FF9600) for fills, chunky buttons with a thick bottom
+   edge, 2px hairline cards, Nunito black headings. The pixel twin is
+   the only pixel element on the page (same rule as the app).
+   Sections:
+     1. Design tokens
+     2. Reset & base
+     3. Layout helpers
+     4. Buttons & store badge
+     5. Pixel sprite
+     6. Navbar
+     7. Hero + twin demo
+     8. Section heads
+     9. Levels ladder
+    10. Streak rules
+    11. Features
+    12. Privacy band + final CTA
+    13. Footer
+    14. Sub-page hero + legal pages
+    15. Support page (FAQ + contact form)
+    16. Reveal animations + reduced motion
+    17. Responsive (mobile first: tablet, desktop)
+===================================================================== */
+
+/* ---------------------------------------------------------------
+   1. DESIGN TOKENS (mirror the palette inside the app)
+--------------------------------------------------------------- */
+:root {
+    /* Brand orange: fills, borders, icons. Never small text. */
+    --orange: #FF9600;
+    --orange-edge: #E58600;
+    /* Orange for TEXT (5.1:1 on white), same as the app's primaryText */
+    --orange-text: #AD5700;
+    /* Orange for LARGE display text only (3.1:1 on white, WCAG large-text AA) */
+    --orange-display: #D97A00;
+    --surface-warm: #FFF1DC;
+    --border-warm: #FFC56E;
+
+    /* Rest days use the app's blue */
+    --blue: #1CB0F6;
+    --sky: #DDF4FF;
+
+    /* Neutrals */
+    --bg: #FFFFFF;
+    --ink: #4B4B4B;
+    --ink-2: #6B6B6B;
+    --line: #E5E5E5;
+    --line-edge: #D0D0D0;
+    --danger: #EA2B2B;
+
+    /* Type */
+    --font: 'Nunito', ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+
+    /* Shape */
+    --r-sm: 12px;
+    --r-md: 16px;
+    --r-lg: 24px;
+    --edge: 4px;            /* chunky bottom edge depth */
+
+    --maxw: 1140px;
+    --nav-h: 68px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------
+   2. RESET & BASE
+--------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+    font-family: var(--font);
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+/* The hidden attribute always wins over component display rules */
+[hidden] { display: none !important; }
+
+a { color: var(--orange-text); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+h1, h2, h3, h4 { font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+
+/* Visible keyboard focus everywhere */
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+
+/* Visually hidden, still read by screen readers */
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute; left: 12px; top: -60px; z-index: 200;
+    background: var(--ink); color: #fff; padding: 10px 16px; border-radius: var(--r-sm);
+    font-weight: 800; text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------------------------------------------------------------
+   3. LAYOUT HELPERS
+--------------------------------------------------------------- */
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+.section { padding: 72px 0; }
+
+/* Orange words inside big headings (large-text-safe orange) */
+.highlight { color: var(--orange-display); }
+
+/* Generic hairline card with the chunky bottom edge */
+.card {
+    background: #fff;
+    border: 2px solid var(--line);
+    border-bottom-width: 5px;
+    border-radius: var(--r-lg);
+}
+
+/* ---------------------------------------------------------------
+   4. BUTTONS & STORE BADGE
+--------------------------------------------------------------- */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 50px; padding: 0 20px;
+    font: inherit; font-size: 1rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase;
+    border-radius: var(--r-md); border: 2px solid transparent; cursor: pointer;
+    text-decoration: none;
+    /* the bottom edge is a hard shadow that collapses when pressed */
+    transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background-color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: translateY(var(--edge)); }
+
+/* Primary: white heavy label on orange (only ever at button size, as in the app) */
+.btn--primary { background: var(--orange); color: #fff; box-shadow: 0 var(--edge) 0 var(--orange-edge); }
+.btn--primary:hover { background: #FFA41F; }
+.btn--primary:active { box-shadow: 0 0 0 var(--orange-edge); }
+
+/* Secondary: white with a hairline border */
+.btn--secondary { background: #fff; color: var(--ink); border-color: var(--line); box-shadow: 0 var(--edge) 0 var(--line); }
+.btn--secondary:hover { background: #F7F7F7; }
+.btn--secondary:active { box-shadow: 0 0 0 var(--line); }
+
+.btn--block { width: 100%; }
+
+/* Store badge. Not on the App Store yet, so this is a "coming soon"
+   pill, not Apple's badge. js/main.js swaps in Apple's official badge
+   and the real link once APP_STORE_URL is set. */
+.store-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 18px 10px 12px;
+    background: #fff; color: var(--ink); text-decoration: none;
+    border: 2px solid var(--line); border-bottom-width: 5px; border-radius: var(--r-md);
+}
+.store-badge__icon {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    image-rendering: pixelated;
+}
+.store-badge__text { display: flex; flex-direction: column; line-height: 1.2; }
+.store-badge__text small {
+    font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-text);
+}
+.store-badge__text strong { font-size: 1.05rem; font-weight: 900; }
+/* Live state (after launch): Apple's badge image fills the link */
+.store-badge.is-live { padding: 0; border: 0; background: none; }
+.store-badge.is-live img { height: 54px; width: auto; }
+
+/* ---------------------------------------------------------------
+   5. PIXEL SPRITE
+   A horizontal sheet of 64x64 frames played with steps(), 150 ms per
+   frame like the app. Set per element: background-image, --frames,
+   and --scale (the sheet is drawn at 64px * --scale per frame).
+--------------------------------------------------------------- */
+.sprite {
+    --frames: 6;
+    --scale: 2;
+    --size: calc(64px * var(--scale));
+    width: var(--size);
+    height: var(--size);
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 0 0;
+    image-rendering: pixelated;
+    animation: sprite-play calc(var(--frames) * 150ms) steps(var(--frames)) infinite;
+}
+@keyframes sprite-play {
+    to { background-position: calc(var(--size) * var(--frames) * -1) 0; }
+}
+
+/* ---------------------------------------------------------------
+   6. NAVBAR
+--------------------------------------------------------------- */
+.navbar {
+    position: sticky; top: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.navbar.scrolled { border-bottom-color: var(--line); }
+
+.navbar-container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+
+.navbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.navbar-logo { width: 38px; height: 38px; border-radius: 10px; }
+.navbar-name { font-size: 1.45rem; font-weight: 900; color: var(--orange); letter-spacing: -0.02em; }
+
+/* Mobile drawer (hidden until the toggle opens it) */
+.navbar-menu {
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 16px 20px 24px;
+    background: #fff; border-bottom: 2px solid var(--line);
+    transform: translateY(-12px); opacity: 0; visibility: hidden;
+    transition: transform 0.25s var(--ease), opacity 0.2s, visibility 0.2s;
+}
+.navbar-menu.active { transform: none; opacity: 1; visibility: visible; }
+
+.navbar-link {
+    padding: 12px 14px; border-radius: var(--r-sm);
+    font-weight: 800; color: var(--ink); text-decoration: none;
+}
+.navbar-link:hover { background: #F7F7F7; }
+.navbar-link.active { color: var(--orange-text); background: var(--surface-warm); }
+
+/* Nav CTA: points at the "coming soon" section */
+.navbar-cta {
+    margin-top: 8px; align-self: flex-start;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--surface-warm); border: 2px solid var(--border-warm);
+    font-size: 0.85rem; font-weight: 900; color: var(--orange-text); text-decoration: none;
+}
+
+/* Hamburger */
+.navbar-toggle {
+    width: 44px; height: 44px; border: 2px solid var(--line); border-radius: var(--r-sm);
+    background: #fff; cursor: pointer; display: grid; place-items: center;
+}
+.navbar-toggle-icon, .navbar-toggle-icon::before, .navbar-toggle-icon::after {
+    display: block; width: 18px; height: 3px; border-radius: 2px; background: var(--ink);
+    position: relative; transition: transform 0.2s, background-color 0.2s;
+}
+.navbar-toggle-icon::before, .navbar-toggle-icon::after { content: ''; position: absolute; left: 0; }
+.navbar-toggle-icon::before { top: -6px; }
+.navbar-toggle-icon::after { top: 6px; }
+.navbar-toggle.active .navbar-toggle-icon { background: transparent; }
+.navbar-toggle.active .navbar-toggle-icon::before { transform: translateY(6px) rotate(45deg); }
+.navbar-toggle.active .navbar-toggle-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------------------------------------------------------------
+   7. HERO + TWIN DEMO
+--------------------------------------------------------------- */
+.hero { padding: 36px 0 64px; }
+
+.hero-content { display: grid; gap: 40px; align-items: center; }
+
+.hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--surface-warm); color: var(--orange-text);
+    font-size: 0.8rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+.hero-title { margin: 18px 0 16px; font-size: clamp(2.5rem, 9vw, 4.4rem); }
+.hero-title .line-2 { display: block; color: var(--ink-2); }
+
+.hero-subtitle { font-size: 1.12rem; color: var(--ink-2); max-width: 34em; }
+.hero-subtitle strong { color: var(--ink); font-weight: 800; }
+
+.hero-cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+.hero-note { font-size: 0.9rem; color: var(--ink-2); }
+
+/* ---- The demo card: a little copy of the app's home screen ---- */
+.demo { width: 100%; max-width: 440px; margin: 0 auto; padding: 16px; }
+
+.demo-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; border-radius: 10px;
+    font-size: 0.85rem; font-weight: 900; white-space: nowrap;
+}
+.chip--level { background: var(--surface-warm); color: var(--orange-text); }
+.chip--streak { color: var(--orange-text); font-size: 1rem; }
+.chip--tired { background: #F0F0F0; color: var(--ink); }
+
+/* The stage: sky, a gym-mat floor, and the twin */
+.stage {
+    position: relative; height: 232px; overflow: hidden;
+    border: 2px solid var(--line); border-bottom-width: 5px; border-radius: 20px;
+    background: linear-gradient(var(--sky) 0%, #F7FBFF 72%, var(--surface-warm) 72%, var(--surface-warm) 100%);
+}
+.stage::after { /* mat edge */
+    content: ''; position: absolute; left: 0; right: 0; top: 72%; height: 4px; background: var(--border-warm);
+}
+.stage-twin { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); z-index: 1; }
+.stage-twin .sprite { --scale: 3; }
+.stage-tag {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    padding: 2px 10px; border-radius: 10px; background: #fff; border: 2px solid var(--line);
+    font-size: 0.8rem; font-weight: 900;
+}
+.stage-zzz { /* tired bubble, shown only while tired */
+    position: absolute; top: 34px; right: 22%; z-index: 2; font-size: 1.6rem;
+    opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Tired: washed out and slower, like the app's stand-in for tired art */
+.stage.is-tired .sprite { filter: grayscale(1) opacity(0.75); animation-duration: calc(var(--frames) * 300ms); }
+.stage.is-tired .stage-zzz { opacity: 1; transform: none; animation: zzz-float 2.4s ease-in-out infinite; }
+@keyframes zzz-float { 50% { transform: translateY(-6px); } }
+
+/* Evolution: white silhouette flickers, then a flash */
+.stage-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 3; }
+.stage.is-evolving .sprite { animation: sprite-play calc(var(--frames) * 150ms) steps(var(--frames)) infinite, evolve-flicker 1.4s steps(1) both; }
+.stage.is-evolving .stage-flash { animation: evolve-flash 1.4s ease-out both; }
+@keyframes evolve-flicker {
+    0%, 20%, 40%, 55%, 68%, 78% { filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--orange)); }
+    10%, 30%, 48%, 62%, 74%, 84%, 100% { filter: none; }
+}
+@keyframes evolve-flash { 0%, 78% { opacity: 0; } 86% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Shrinking: gray dip and a small squash */
+.stage.is-shrinking .stage-twin { animation: shrink-dip 1s var(--ease) both; }
+@keyframes shrink-dip {
+    0% { transform: translateX(-50%); filter: none; }
+    40% { transform: translateX(-50%) scale(0.82); filter: grayscale(1); }
+    100% { transform: translateX(-50%); filter: none; }
+}
+
+/* XP bar */
+.xp { margin: 14px 2px 0; }
+.xp-row { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 900; color: var(--ink-2); }
+.xp-bar { height: 16px; margin-top: 4px; border-radius: 10px; background: var(--line); overflow: hidden; }
+.xp-fill {
+    height: 100%; width: 0; border-radius: 10px; background: var(--orange);
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.08);
+    transition: width 0.5s var(--ease);
+}
+
+/* Week strip */
+.week { list-style: none; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 16px 0 6px; }
+.week li { text-align: center; font-size: 0.72rem; font-weight: 900; color: var(--ink-2); }
+.week .dot {
+    display: grid; place-items: center; width: 36px; height: 36px; margin: 4px auto 0;
+    border-radius: 50%; background: #F2F2F2; font-size: 1rem; border: 3px solid transparent;
+}
+.week .is-plan .dot, .week .is-rest .dot { opacity: 0.55; }
+.week .is-done .dot { background: #FFE7C2; opacity: 1; }
+.week .is-rested .dot { background: var(--sky); opacity: 1; }
+.week .is-missed .dot { background: #F0F0F0; color: var(--ink-2); opacity: 1; }
+.week .is-today .dot { background: #fff; border-color: var(--orange); opacity: 1; }
+.week .is-today { color: var(--orange-text); }
+
+.demo-day { margin: 10px 2px 12px; font-size: 0.9rem; font-weight: 800; color: var(--ink-2); }
+.demo-day strong { color: var(--ink); }
+
+/* Actions: a full-width primary, then one row underneath */
+.demo-actions { display: grid; gap: 12px; }
+.demo-actions-row { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 12px; }
+
+.demo-status {
+    min-height: 3.2em; margin-top: 14px; padding: 10px 12px; border-radius: var(--r-sm);
+    background: #F7F7F7; font-size: 0.92rem; font-weight: 700; color: var(--ink);
+}
+.demo-caption { margin-top: 12px; text-align: center; font-size: 0.82rem; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------
+   8. SECTION HEADS
+--------------------------------------------------------------- */
+.section-head { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+.section-kicker {
+    display: block; margin-bottom: 10px;
+    font-size: 0.8rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-text);
+}
+.section-title { font-size: clamp(2rem, 6vw, 3rem); }
+.section-subtitle { margin-top: 14px; font-size: 1.08rem; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------
+   9. LEVELS LADDER
+   Mobile: a list. Desktop: a staircase where each level stands on a
+   taller step (--step).
+--------------------------------------------------------------- */
+.levels { background: linear-gradient(#fff, var(--surface-warm)); }
+
+.ladder { list-style: none; display: grid; gap: 12px; max-width: 520px; margin: 0 auto; }
+/* Mobile: each level is one card row (sprite + text) */
+.ladder-item {
+    display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px;
+    padding: 10px 16px 10px 8px; background: #fff;
+    border: 2px solid var(--line); border-bottom-width: 5px; border-radius: var(--r-lg);
+}
+.ladder-item .sprite { --scale: 1.5; }
+.ladder-item--top { background: var(--surface-warm); border-color: var(--border-warm); }
+.ladder-lv {
+    display: inline-block; padding: 1px 8px; border-radius: 8px; margin-bottom: 4px;
+    background: var(--surface-warm); color: var(--orange-text); font-size: 0.75rem; font-weight: 900;
+}
+.ladder-item--top .ladder-lv { background: #fff; }
+.ladder-step h3 { font-size: 1.2rem; }
+.ladder-step p { font-size: 0.92rem; color: var(--ink-2); text-wrap: pretty; }
+
+.levels-note { margin-top: 28px; text-align: center; color: var(--ink-2); font-size: 0.95rem; }
+
+/* ---------------------------------------------------------------
+   10. STREAK RULES
+--------------------------------------------------------------- */
+.rules-grid { display: grid; gap: 16px; }
+/* Mobile: icon on the left of the text; tablet+: icon on top */
+.rule { padding: 20px; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: start; }
+.rule-icon { grid-row: span 2; }
+.rule-icon {
+    display: grid; place-items: center; width: 48px; height: 48px;
+    border-radius: 14px; font-size: 1.5rem; background: var(--surface-warm);
+}
+.rule--rest .rule-icon { background: var(--sky); }
+.rule h3 { font-size: 1.25rem; }
+.rule p { color: var(--ink-2); }
+
+/* "Miss a day" flow: tired, then one of two outcomes */
+.miss { margin-top: 40px; padding: 24px 20px; background: #FAFAFA; border-radius: var(--r-lg); border: 2px dashed var(--line); }
+.miss-title { text-align: center; font-size: 1.5rem; margin-bottom: 20px; }
+.miss-flow { display: grid; gap: 14px; align-items: center; }
+.miss-step { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: #fff; }
+.miss-step .sprite { --scale: 1.25; }
+.miss-step h4 { font-size: 1.05rem; font-weight: 900; }
+.miss-step p { font-size: 0.9rem; color: var(--ink-2); }
+.miss-step--tired .sprite { filter: grayscale(1) opacity(0.75); animation-duration: calc(var(--frames) * 300ms); }
+.miss-step--shrink .sprite { filter: grayscale(0.4); }
+/* Points down while the flow is stacked, right once it's a row */
+.miss-arrow { justify-self: center; font-size: 1.4rem; font-weight: 900; color: var(--border-warm); transform: rotate(90deg); }
+.miss-outcomes { display: grid; gap: 14px; }
+
+/* ---------------------------------------------------------------
+   11. FEATURES
+--------------------------------------------------------------- */
+.features-grid { display: grid; gap: 16px; }
+.feature { padding: 24px; }
+.feature-icon { font-size: 1.8rem; line-height: 1; margin-bottom: 12px; }
+.feature h3 { font-size: 1.25rem; margin-bottom: 6px; }
+.feature p { color: var(--ink-2); }
+.feature-looks { display: flex; justify-content: center; margin-top: 14px; }
+/* The frames have transparent sides, so the twins can stand a bit closer */
+.feature-looks .sprite { --scale: 1; margin: 0 -6px; }
+
+/* ---------------------------------------------------------------
+   12. PRIVACY BAND + FINAL CTA
+--------------------------------------------------------------- */
+/* The band sits close under the features grid */
+#privacy { padding-top: 0; }
+.privacy-band { padding: 28px 22px; background: var(--surface-warm); border-color: var(--border-warm); }
+.privacy-band h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin-bottom: 16px; }
+.privacy-points { list-style: none; display: grid; gap: 12px; margin-bottom: 18px; }
+.privacy-points li { display: flex; gap: 12px; align-items: flex-start; }
+.privacy-points li span { font-size: 1.3rem; line-height: 1.4; }
+.privacy-band a { font-weight: 900; }
+
+.final-cta { text-align: center; }
+.final-cta .sprite { --scale: 3; margin: 0 auto 8px; }
+.final-cta h2 { font-size: clamp(2.2rem, 7vw, 3.4rem); }
+.final-cta p { margin: 12px auto 26px; max-width: 32em; color: var(--ink-2); font-size: 1.08rem; }
+.final-cta .fine-print { margin-top: 18px; font-size: 0.85rem; }
+
+/* ---------------------------------------------------------------
+   13. FOOTER
+--------------------------------------------------------------- */
+.footer { border-top: 2px solid var(--line); padding: 36px 0 28px; }
+.footer-content { display: grid; gap: 22px; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-logo { width: 44px; height: 44px; border-radius: 12px; }
+.footer-name { display: block; font-size: 1.2rem; font-weight: 900; color: var(--orange); }
+.footer-tag { display: block; font-size: 0.85rem; color: var(--ink-2); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-links a { color: var(--ink); font-weight: 800; text-decoration: none; }
+.footer-links a:hover { color: var(--orange-text); }
+.footer-copyright { margin-top: 24px; font-size: 0.85rem; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------
+   14. SUB-PAGE HERO + LEGAL PAGES
+--------------------------------------------------------------- */
+.page-hero { padding: 40px 0 28px; text-align: center; }
+.page-hero h1 { font-size: clamp(2.3rem, 8vw, 3.6rem); }
+.page-hero p { margin-top: 12px; color: var(--ink-2); font-size: 1.08rem; }
+.page-hero .updated {
+    display: inline-block; margin-top: 14px; padding: 4px 12px; border-radius: 999px;
+    background: var(--surface-warm); color: var(--orange-text); font-size: 0.85rem; font-weight: 900;
+}
+
+.legal { padding: 8px 0 72px; }
+.legal-body { max-width: 760px; margin: 0 auto; }
+.legal-body > section { padding: 22px 0; border-bottom: 2px solid #F2F2F2; }
+.legal-body > section:last-of-type { border-bottom: 0; }
+.legal-body h2 { font-size: 1.45rem; margin-bottom: 10px; }
+.legal-body h3 { font-size: 1.1rem; margin: 16px 0 6px; }
+.legal-body p + p, .legal-body ul + p, .legal-body table + p { margin-top: 10px; }
+.legal-body ul { margin: 10px 0 0 1.2em; display: grid; gap: 6px; }
+.legal-body li::marker { color: var(--orange); }
+.legal-body strong { color: var(--ink); font-weight: 800; }
+
+/* "The short version" box at the top of a policy */
+.legal-summary { padding: 20px 22px; margin-bottom: 8px; background: var(--surface-warm); border-color: var(--border-warm); }
+.legal-summary h2 { font-size: 1.2rem; margin-bottom: 8px; }
+
+/* Data table in the privacy policy (stacks on mobile) */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.92rem; }
+.data-table th, .data-table td { text-align: left; vertical-align: top; padding: 10px; border: 2px solid #F2F2F2; }
+.data-table th { background: #FAFAFA; font-weight: 900; }
+
+/* ---------------------------------------------------------------
+   15. SUPPORT PAGE (FAQ + CONTACT FORM)
+--------------------------------------------------------------- */
+.support { padding: 8px 0 72px; }
+.support-grid { display: grid; gap: 40px; }
+.support h2 { font-size: 1.7rem; margin-bottom: 16px; }
+
+.faq { display: grid; gap: 12px; }
+.faq details { padding: 0; }
+.faq summary {
+    list-style: none; cursor: pointer; padding: 16px 48px 16px 18px; position: relative;
+    font-weight: 900; font-size: 1.05rem; border-radius: var(--r-lg);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { /* plus / minus */
+    content: '+'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+    font-size: 1.4rem; color: var(--orange);
+}
+.faq details[open] summary::after { content: '\2212'; }
+.faq-answer { padding: 0 18px 18px; color: var(--ink-2); }
+.faq-answer p + p { margin-top: 8px; }
+.faq-answer strong { color: var(--ink); }
+
+.contact-card { padding: 24px 20px; }
+.contact-email { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; font-weight: 800; }
+.contact-form { display: grid; gap: 16px; }
+.form-group { display: grid; gap: 6px; }
+.form-group label { font-weight: 900; font-size: 0.95rem; }
+.form-group input, .form-group textarea {
+    width: 100%; font: inherit; font-weight: 600; color: var(--ink);
+    padding: 12px 14px; border: 2px solid var(--line); border-radius: var(--r-sm); background: #F7F7F7;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--blue); background: #fff; }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.hidden { display: none; }
+
+/* Status line written by js/web3forms.js */
+.form-status { padding: 12px 14px; border-radius: var(--r-sm); font-weight: 800; }
+.form-status.success { background: #E7F8D6; color: #2F6A00; }
+.form-status.error { background: #FFE5E5; color: #B01C1C; }
+
+/* ---------------------------------------------------------------
+   16. REVEAL ANIMATIONS + REDUCED MOTION
+--------------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.reveal.active { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    /* Sprites hold their first frame; effects are skipped */
+    .sprite, .stage.is-tired .stage-zzz, .stage.is-evolving .sprite, .stage.is-evolving .stage-flash,
+    .stage.is-shrinking .stage-twin { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .xp-fill, .navbar-menu { transition: none; }
+}
+
+/* ---------------------------------------------------------------
+   17. RESPONSIVE
+--------------------------------------------------------------- */
+/* Tablet */
+@media (min-width: 720px) {
+    .container { padding: 0 32px; }
+    .section { padding: 96px 0; }
+    .rules-grid { grid-template-columns: repeat(3, 1fr); }
+    .rule { display: block; padding: 22px; }
+    .rule-icon { margin-bottom: 14px; }
+    .rule h3 { margin-bottom: 6px; }
+    .feature-looks .sprite { --scale: 1.25; margin: 0 -4px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature--wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
+    .feature--wide .feature-looks { margin-top: 0; }
+    .miss { padding: 32px; }
+    .footer-content { grid-template-columns: auto 1fr; align-items: center; }
+    .footer-links { justify-content: flex-end; }
+    .support-grid { grid-template-columns: 1.3fr 1fr; align-items: start; }
+    .privacy-band { padding: 36px 40px; }
+    .privacy-points { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    /* Inline nav instead of the drawer */
+    .navbar-toggle { display: none; }
+    .navbar-menu {
+        position: static; flex-direction: row; align-items: center; gap: 4px;
+        padding: 0; border: 0; background: none;
+        transform: none; opacity: 1; visibility: visible;
+    }
+    .navbar-cta { margin: 0 0 0 10px; align-self: center; }
+
+    .hero { padding: 56px 0 96px; }
+    .hero-content { grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+    .demo { margin: 0 0 0 auto; padding: 20px; }
+
+    /* Staircase: the card becomes a step that grows with the level,
+       and the twin stands on top of it */
+    .ladder { max-width: none; grid-template-columns: repeat(5, 1fr); align-items: end; gap: 14px; }
+    .ladder-item {
+        display: flex; flex-direction: column; align-items: center; gap: 0;
+        padding: 0; background: none; border: 0;
+    }
+    .ladder-item .sprite { --scale: 2.25; margin-bottom: -6px; position: relative; z-index: 1; }
+    .ladder-step {
+        width: 100%; min-height: var(--step); padding: 18px 12px; text-align: center;
+        background: #fff; border: 2px solid var(--line); border-bottom-width: 5px;
+        border-radius: var(--r-lg) var(--r-lg) var(--r-md) var(--r-md);
+    }
+    .ladder-item--top { background: none; }
+    .ladder-item--top .ladder-step { background: var(--surface-warm); border-color: var(--border-warm); }
+    .ladder-item:nth-child(1) { --step: 150px; }
+    .ladder-item:nth-child(2) { --step: 185px; }
+    .ladder-item:nth-child(3) { --step: 220px; }
+    .ladder-item:nth-child(4) { --step: 255px; }
+    .ladder-item:nth-child(5) { --step: 290px; }
+
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
+    .feature--wide { grid-column: span 3; }
+
+    /* Missed-day flow becomes a row: tired, arrow, the two outcomes */
+    .miss-flow { grid-template-columns: 1fr auto 1.6fr; }
+    .miss-arrow { transform: none; }
+}
