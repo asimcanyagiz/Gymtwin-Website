@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FFFFFF">
-    <meta name="description" content="Gymtwin Privacy Policy. Apple Health body data stays on your iPhone. Workouts and check-ins are backed up under a random account ID. No ads, no tracking, no IDFA, no data sales, and in-app data deletion.">
+    <meta name="description" content="Gymtwin Privacy Policy. What the app collects, what stays on your iPhone, how the Spot AI coach uses OpenAI, how friends and Hardmode work, how long we keep data, and how to delete it. No ads, no tracking, no data sales.">
     <link rel="canonical" href="https://asimcanyagiz.github.io/Gymtwin-Website/privacy.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Gymtwin">
     <meta property="og:url" content="https://asimcanyagiz.github.io/Gymtwin-Website/privacy.html">
     <meta property="og:title" content="Privacy Policy · Gymtwin">
-    <meta property="og:description" content="What Gymtwin collects, what stays on your iPhone, and how to delete your data.">
+    <meta property="og:description" content="What Gymtwin collects, what stays on your iPhone, how Spot uses AI, and how to delete your data.">
     <meta property="og:image" content="https://asimcanyagiz.github.io/Gymtwin-Website/Assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -55,7 +55,7 @@
         <div class="container">
             <h1>Privacy <span class="highlight">Policy</span></h1>
             <p>What Gymtwin collects, what stays on your iPhone, and how to delete it.</p>
-            <span class="updated">Effective date: October 22, 2026</span>
+            <span class="updated">Effective date: October 30, 2026</span>
         </div>
     </section>
 
@@ -66,157 +66,415 @@
                 <div class="legal-summary card">
                     <h2>The short version</h2>
                     <ul>
-                        <li>Height, weight, body fat, sex and date of birth read from Apple Health stay on your iPhone.</li>
-                        <li>Your workouts, check-ins, plan and any values you type in are backed up under a random account ID. We don't ask for your name or email address.</li>
-                        <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), and we never sell your data.</li>
-                        <li>Delete my data in the app erases your account and progress from our servers and from your phone.</li>
+                        <li>Height, weight, body fat, sex and date of birth read from Apple Health stay on your iPhone. They go to the Spot AI coach only if you turn on a separate switch, "Share Apple Health values".</li>
+                        <li>Your workouts, check-ins, plan, gems and any body values you type in are backed up under a random account ID. We don't ask for your name or email address.</li>
+                        <li>Spot, Food and AI programs send data to OpenAI only after you allow it, only when you ask, and only for adults on a free trial or subscription. Your chats, meals and programs are kept on your phone.</li>
+                        <li>Hardmode gym photos never leave your phone. A meal photo is sent once for analysis and is never stored.</li>
+                        <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), no analytics software, and we never sell your data.</li>
+                        <li>Delete my data in Settings erases your account and progress from our servers and everything Gymtwin keeps on your phone.</li>
                     </ul>
                 </div>
 
-                <section>
-                    <h2>Who we are</h2>
-                    <p>This policy covers the Gymtwin app for iPhone ("Gymtwin", "the app") and this website. Gymtwin is developed and published by <strong>Asım Can Yağız</strong> ("we", "us"), who decides how personal data in the app is used and is the data controller. You can reach us at <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a>.</p>
+                <nav class="toc card" aria-label="On this page">
+                    <h2>On this page</h2>
+                    <ol>
+                        <li><a href="#glance">Your data at a glance</a></li>
+                        <li><a href="#who">Who we are</a></li>
+                        <li><a href="#collect">Information we collect</a></li>
+                        <li><a href="#health">Apple Health</a></li>
+                        <li><a href="#ai">Spot, Food and programs (AI)</a></li>
+                        <li><a href="#social">Friends, Hardmode and Gym Dash</a></li>
+                        <li><a href="#not">What we don't do</a></li>
+                        <li><a href="#providers">Companies that help us</a></li>
+                        <li><a href="#transfers">International transfers</a></li>
+                        <li><a href="#retention">How long we keep data</a></li>
+                        <li><a href="#delete">Deleting your data</a></li>
+                        <li><a href="#rights">Your choices and rights</a></li>
+                        <li><a href="#bases">Why we may use your data</a></li>
+                        <li><a href="#children">Children and age</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#website">This website</a></li>
+                        <li><a href="#changes">Changes to this policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ol>
+                </nav>
+
+                <section id="glance">
+                    <h2>Your data at a glance</h2>
+                    <p>This table shows where each kind of data goes. "Our servers" means Google Firebase, which runs the backend for Gymtwin. The sections below explain each row.</p>
+                    <div class="table-wrap">
+                        <table class="data-table data-table--stack">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">On your iPhone</th>
+                                    <th scope="col">Our servers</th>
+                                    <th scope="col">Anyone else</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Data">Apple Health values (height, weight, body fat, sex, date of birth)</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Never</td>
+                                    <td data-label="Anyone else">OpenAI, only if you turn on "Share Apple Health values"</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Workouts and rest check-ins, plan, goal, twin name and look</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes</td>
+                                    <td data-label="Anyone else">A short summary goes to OpenAI when you use Spot</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Body values you type in yourself</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes</td>
+                                    <td data-label="Anyone else">OpenAI, when you use Spot (as age and the values Spot needs)</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Gems, quests, shop items, medals</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes, as part of your progress records</td>
+                                    <td data-label="Anyone else">No</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Spot chats, food log, AI programs</td>
+                                    <td data-label="On your iPhone">Yes, only here</td>
+                                    <td data-label="Our servers">Passes through, not stored</td>
+                                    <td data-label="Anyone else">OpenAI processes each request</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Meal photo</td>
+                                    <td data-label="On your iPhone">In memory only, never saved</td>
+                                    <td data-label="Our servers">Passes through, not stored</td>
+                                    <td data-label="Anyone else">OpenAI, one request, when you tap "Estimate calories"</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Hardmode gym photos</td>
+                                    <td data-label="On your iPhone">Yes, only here</td>
+                                    <td data-label="Our servers">Never</td>
+                                    <td data-label="Anyone else">Never</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Hardmode records (started, ended, photo taken) and verdicts</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes</td>
+                                    <td data-label="Anyone else">No</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Friends: twin name, look, level, last kept day, invite codes</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes</td>
+                                    <td data-label="Anyone else">The friend you share a streak with sees your twin name, look, level and last kept day</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Subscription status</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">A copy, to check access</td>
+                                    <td data-label="Anyone else">RevenueCat and Apple</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Crash reports</td>
+                                    <td data-label="On your iPhone">No</td>
+                                    <td data-label="Our servers">No</td>
+                                    <td data-label="Anyone else">Firebase Crashlytics (Google)</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Widget and Live Activity data, Gym Dash best distance, reminders</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Never</td>
+                                    <td data-label="Anyone else">Never</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
-                <section>
+                <section id="who">
+                    <h2>Who we are</h2>
+                    <p>This policy covers the Gymtwin app for iPhone ("Gymtwin", "the app"), its widgets and Live Activity, the invite link page used for friend invites, and this website. Gymtwin is developed and published by <strong>Asım Can Yağız</strong> ("we", "us"), who decides how personal data in the app is used and is the data controller. You can reach us at <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a>.</p>
+                </section>
+
+                <section id="collect">
                     <h2>Information we collect</h2>
 
-                    <h3>Account identifier</h3>
-                    <p>When you first open Gymtwin, the app creates an anonymous account with Google Firebase Authentication. It is identified by a random user ID. We don't ask for your name, email address or phone number.</p>
-                    <p>If you choose <strong>Back up with Apple</strong>, we link your Sign in with Apple identity to the same account so you can restore your progress on another iPhone. Apple gives us a unique identifier for your Apple Account. Gymtwin does not ask Apple for your name or email address.</p>
-
-                    <h3>Your progress</h3>
-                    <p>To keep your streak, XP and level safe, the app stores these records on our servers under your account, whether or not you back up with Apple:</p>
+                    <h3>Account identifiers</h3>
                     <ul>
-                        <li>Workouts you save: start time, duration, the body regions you trained, how hard it felt, whether the time came from a live workout, Apple Health or manual entry, and any exercises with sets, weight and reps. If the workout was pre-filled from an Apple Health workout, we also store that Health workout's identifier so the same workout never counts twice.</li>
-                        <li>Rest-day check-ins, and a note when you remove a workout on the same day you logged it.</li>
+                        <li><strong>Anonymous account.</strong> When you first open Gymtwin, the app creates an anonymous account with Google Firebase Authentication. It is identified by a random user ID. We don't ask for your name, email address or phone number.</li>
+                        <li><strong>Back up with Apple (optional).</strong> If you choose it, we link your Sign in with Apple identity to the same account, so you can restore your progress on another iPhone and use friends. Apple gives us a unique identifier for your Apple Account. Gymtwin asks Apple for no name and no email address.</li>
+                        <li><strong>Install ID.</strong> The app creates a random identifier when it's installed and attaches it to each record you save, so we can tell which of your devices wrote it. It is not the advertising identifier (IDFA) and it is never used for tracking.</li>
+                    </ul>
+
+                    <h3>Your workouts and progress</h3>
+                    <p>To keep your streak, XP and level safe, the app saves a log of what you do. Your level, streak and XP are worked out from this log each time, which is why a restore gives the same result. The log is kept on your phone and backed up on our servers under your account, whether or not you back up with Apple:</p>
+                    <ul>
+                        <li>Workouts you save: start time, duration, the body regions you trained, how hard it felt, whether the time came from a live workout, Apple Health or manual entry, and any exercises with sets, weight and reps. If a workout was pre-filled from an Apple Health workout, we also store that Health workout's identifier so the same workout never counts twice.</li>
+                        <li>Rest-day check-ins, and a note when you remove a workout.</li>
                         <li>Your training plan (the weekdays you train), your goal and your training experience.</li>
-                        <li>Your twin's look, name and starting level, and progress bonuses the app grants.</li>
+                        <li>Your twin's look and name (the name can be up to 60 characters) and your starting level, plus progress bonuses the app grants.</li>
+                        <li>Streak freezes and level shields you use, and the gem, quest, shop and boost records described below.</li>
                         <li>When your subscription became active or inactive, so the app can pause your streak while you're not subscribed.</li>
+                        <li>Hardmode records, described below.</li>
                         <li>Your time zone and the day each record belongs to, plus when your account was created and last synced.</li>
                     </ul>
-                    <p>Backing up with Apple is what lets you get these records back on a new phone. Without it, they stay tied to the anonymous account on this phone.</p>
+                    <p>Without Back up with Apple, these records are tied to the anonymous account on this phone and can't be moved to a new phone.</p>
 
-                    <h3>Body measurements you enter yourself</h3>
-                    <p>If you type in your height, weight, body fat percentage, sex or birth year in Gymtwin, rather than reading them from Apple Health, those values are stored with your progress.</p>
+                    <h3>Body values you enter yourself</h3>
+                    <p>If you type in your height, weight, body fat percentage, sex or birth year in Gymtwin instead of reading them from Apple Health, those values are stored with your progress. We use them for your starting level, bonuses and calorie target. We use your birth year to check whether you are 18 or older, which decides whether Spot, Food and AI programs are available and whether Gymtwin works out a calorie target for you.</p>
 
-                    <h3>Device identifier</h3>
-                    <p>The app creates a random identifier when it's installed and attaches it to each record, so we can tell which of your devices wrote it. It is not the advertising identifier (IDFA) and it is never used for tracking.</p>
+                    <h3>Gems, quests, shop, medals and achievements</h3>
+                    <p>You earn gems from workouts, daily quests, medals and achievements, and spend them in the Shop on streak freezes, level shields and XP boosts. Gems are never sold for money. Each gem grant, shop purchase and boost activation is a record in your progress log (the source and amount of a grant, the item and price of a purchase), so a restore brings back the same balance. These records hold game values only and no health data.</p>
 
-                    <h3>Crash data</h3>
-                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation. We don't attach your user ID, your health or fitness data, or custom logs to crash reports.</p>
+                    <h3>Subscriptions and purchases</h3>
+                    <p>Subscriptions are sold by Apple through the App Store. We use RevenueCat to check whether your subscription or free trial is active. RevenueCat receives your Gymtwin user ID, your App Store purchase information (such as the product, purchase and renewal dates, and transaction identifiers) and technical data its software sends with each request (such as IP address, App Store country, app version and device model). We don't send RevenueCat your name, email address or any health or fitness data. We never see your payment card details.</p>
+                    <p>When you use Spot or Hardmode, our server also asks RevenueCat whether your account has an active trial or subscription and keeps a short-lived copy of the answer (active or not, trial or paid, expiry time) with your AI settings record.</p>
 
-                    <h3>Purchases</h3>
-                    <p>Subscriptions are sold by Apple through the App Store. We use RevenueCat to check whether your subscription is active. RevenueCat receives your Gymtwin user ID, your App Store purchase information (such as the product, purchase and renewal dates, and transaction identifiers) and technical data its software sends with each request (such as IP address, App Store country, app version and device model). We don't send RevenueCat your name, email address or any health or fitness data. We never see your payment card details.</p>
+                    <h3>Crash reports</h3>
+                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation that Firebase creates. We don't attach your user ID, your health or fitness data, or custom logs to crash reports. Crash reporting is switched off in development builds.</p>
+
+                    <h3>Widgets, Live Activities and reminders</h3>
+                    <ul>
+                        <li><strong>Widgets and Live Activities</strong> show information stored on your device. The app keeps a small snapshot (your twin's name and level, your streak, whether today is kept, and how much XP you earned each day) in a file shared between the app and its widgets on your phone. It is excluded from backups and is never uploaded. It holds no body measurements.</li>
+                        <li><strong>On the Lock Screen,</strong> a workout Live Activity can show your twin's name, level and streak, timers, the current exercise name and the set's weight and reps. Anyone who can see your Lock Screen can see it. The "Always Show" option is off unless you switch it on, and you can switch Live Activities off in iOS Settings.</li>
+                        <li><strong>Reminders</strong> (streak reminders, the rest timer, the backup reminder, Hardmode warnings and shared-streak reminders) are scheduled on your phone as local notifications. We don't run a push notification service and we don't collect a push token.</li>
+                    </ul>
+
+                    <h3>Sharing cards</h3>
+                    <p>Share cards (your twin, streak, workout or evolution) are drawn in memory on your phone and handed to the iOS share sheet. They go only to the app or person you choose, and Gymtwin doesn't save them to your photo library or upload them. A card can show your twin's name, level, streak, XP and medal names. It never shows weight, body fat, height, calories, workout duration or time.</p>
+
+                    <h3>Contacting support</h3>
+                    <p>If you email us, we receive your email address and whatever you write. "Contact support" and "Report a problem" in the app open a draft in your own email app, which you review and send. The "Report a problem" draft quotes the Spot reply you're reporting and the app version. It contains no account ID and no health data.</p>
                 </section>
 
-                <section>
+                <section id="health">
                     <h2>Apple Health</h2>
-                    <p>Gymtwin asks for permission to <strong>read</strong> these Apple Health data types: workouts, height, weight, body fat percentage, biological sex and date of birth. It never writes to Apple Health. We use this data only to pre-fill your profile, your body measurements and the time of a workout you log.</p>
+                    <p>Gymtwin asks for permission to <strong>read</strong> these Apple Health data types: workouts, height, weight, body fat percentage, biological sex and date of birth. It never writes to Apple Health. We use this data to pre-fill your profile, your body measurements and the time of a workout you log.</p>
                     <p><strong>Height, weight, body fat percentage, sex and date of birth read from Apple Health stay on your iPhone.</strong> They are never uploaded to our servers, never stored in iCloud, never sent to RevenueCat or Crashlytics, and never used for advertising, marketing or analytics. On a new phone, Gymtwin reads them from Health again.</p>
-                    <p>When you save a workout whose time was pre-filled from an Apple Health workout, the saved Gymtwin workout (its start time and duration, the Health workout's identifier, and what you entered) is stored with your progress like any other workout, so your streak and XP can be restored. Nothing else from Apple Health is stored on our servers.</p>
-                    <p>We never sell data from Apple Health or share it with third parties for advertising or any other purpose. The only copy outside your phone is the saved workout described above, stored by our service provider Google Firebase on our behalf. You can change Gymtwin's access at any time in the Health app: tap your profile picture, then Apps, then Gymtwin.</p>
-                </section>
-
-                <section>
-                    <h2>What stays on your iPhone</h2>
+                    <p>There are two things to know:</p>
                     <ul>
-                        <li>The Apple Health values described above.</li>
-                        <li>The app's local copy of your progress, an unfinished live workout, and settings such as reminder times and units.</li>
-                        <li>Streak reminders. They are scheduled on your phone as local notifications; we don't run a push notification service.</li>
+                        <li>When you save a workout whose time was pre-filled from an Apple Health workout, the saved Gymtwin workout (its start time and duration, the Health workout's identifier, and what you entered) is stored with your progress like any other workout, so your streak and XP can be restored. Nothing else from Apple Health is stored on our servers.</li>
+                        <li>If you turn on <strong>Share Apple Health values</strong> in Settings, then under AI &amp; privacy, Spot may send your Health height, weight, body fat, sex and age (worked out from your date of birth; the date itself isn't sent) to OpenAI when it needs them. This is a separate choice from using Spot, it is off by default, and you can turn it off at any time. See the Spot section below.</li>
                     </ul>
+                    <p>We never sell data from Apple Health or share it with third parties for advertising or any other purpose. You can change Gymtwin's access at any time in the Health app: tap your profile picture, then Apps, then Gymtwin.</p>
                 </section>
 
-                <section>
-                    <h2>How we use information</h2>
+                <section id="ai">
+                    <h2>Spot, Food and programs (AI)</h2>
+                    <p>Spot is Gymtwin's AI coach. It powers the Coach tab (chat and workout suggestions), Food (a calorie and macro estimate from a meal photo) and AI-written workout programs. These features are powered by a model from <strong>OpenAI</strong>, which acts as our processor.</p>
+
+                    <h3>When Spot can run</h3>
                     <ul>
-                        <li>To run the app: your streak, XP, levels and plan.</li>
-                        <li>To back up your progress and restore it on another iPhone.</li>
-                        <li>To check your subscription and unlock the app.</li>
-                        <li>To find and fix crashes.</li>
-                        <li>To protect our servers from abuse. Firebase App Check uses Apple's App Attest to confirm that requests come from a genuine copy of Gymtwin.</li>
-                        <li>To answer you when you contact support.</li>
+                        <li><strong>Only with your consent.</strong> Before Spot's first use, a screen lists what is sent and asks you to tap Allow. Nothing is sent before that. You can turn Spot off at any time in Settings, then AI &amp; privacy, and the server refuses requests once consent is withdrawn.</li>
+                        <li><strong>Only when you ask.</strong> Spot never runs in the background. A request is sent when you send a chat message, ask for a suggestion or program, or tap "Estimate calories" on a meal photo.</li>
+                        <li><strong>Only for adults.</strong> Spot, Food and programs are for ages 18 and up, based on the birth year in your profile. If you are under 18, or have not given a birth year, these features stay off and Gymtwin's rule-based features still work.</li>
+                        <li><strong>Only on a free trial or active subscription.</strong> Our server checks this with RevenueCat before each request.</li>
                     </ul>
-                    <p>Legal bases (where the GDPR or UK GDPR applies): providing the app and your subscription (contract), keeping it stable and secure (our legitimate interests), and reading Apple Health data (your consent, which you give and can withdraw in iOS).</p>
+
+                    <h3>What is sent to OpenAI</h3>
+                    <p>Each request goes from the app to our server, which forwards it to OpenAI. The app never talks to OpenAI directly and holds no OpenAI key. Depending on the request, OpenAI receives:</p>
+                    <ul>
+                        <li>Your message and Spot's earlier replies in the chat (a limited number of recent turns).</li>
+                        <li>A training summary: your recent workouts (date, minutes, body regions, effort and whether you logged exercises), your best lifts (exercise name, weight, reps and date), your goal, experience level and weekly plan, today's date, your level and streak, and which body regions you've neglected.</li>
+                        <li>Body details you typed in yourself (height, weight, body fat, sex and age, not your birth year) and your daily calorie totals, for chat only. Program and suggestion requests leave these out.</li>
+                        <li>Your choices for programs and suggestions (where you train, session length, weekdays), your units (metric or imperial), your time zone, and a yes or no flag that you're 18 or older.</li>
+                        <li>A meal photo and the optional note you type, when you scan a meal. The photo is taken with the in-app camera (Gymtwin never reads your photo library), reduced to at most 1,024 pixels on its long side, stripped of metadata such as location, and held in memory. Gymtwin does not save it on your phone or on our server.</li>
+                        <li>Apple Health height, weight, body fat, sex and age, only if you turned on "Share Apple Health values".</li>
+                    </ul>
+                    <p><strong>Never sent to OpenAI:</strong> your name, email address, Apple ID, location, your twin's name, your account ID, or anything from Apple Health unless you turned on the separate Health switch. Gems, the shop, achievements, Hardmode, shared streaks, widget data and share cards are never part of a request.</p>
+
+                    <h3>What our server does and does not keep</h3>
+                    <ul>
+                        <li>It checks your account and that the request comes from a genuine copy of the app, checks your subscription and consent, counts the request against your daily and monthly limits, and passes it on. These limits control cost and abuse.</li>
+                        <li>It <strong>does not store or log</strong> your messages, photos, training summary or Spot's replies.</li>
+                        <li>It keeps a record of your AI consent (which version you agreed to, when, and whether Health values are included), your time zone (used only to decide when your daily limit resets), the short-lived subscription check, and usage counters (how many requests of each kind per day and per month, and their approximate cost).</li>
+                        <li>Its operational logs hold the request type, model, whether it succeeded, timing, token counts, cost and a hashed account ID. They hold no content.</li>
+                        <li>It screens your chat message for safety-related phrases (for example about self-harm or eating disorders). A match changes how Spot answers and shows a card with helplines. Nothing is stored because of it.</li>
+                    </ul>
+
+                    <h3>What OpenAI does with it</h3>
+                    <ul>
+                        <li>OpenAI uses the request only to produce Spot's reply. We ask it not to keep the conversation as application state.</li>
+                        <li>OpenAI may keep API requests, including a meal photo, for up to 30 days to monitor for abuse. It does not use data sent through its API to train its models.</li>
+                        <li>Each request carries a hashed version of your account ID (a keyed one-way hash, not your real ID) that OpenAI uses for abuse monitoring.</li>
+                    </ul>
+
+                    <h3>What stays on your phone</h3>
+                    <p>Your Spot chat, your food log (meals with name, calories and macros) and your AI programs are stored only on your phone, in a private folder that is excluded from backups and not shared with widgets. A new phone starts empty. In Settings, then AI &amp; privacy, you can clear your chat, delete your food log or programs, or delete all AI data on the device. Delete my data removes them too.</p>
+
+                    <h3>Limits of AI</h3>
+                    <p>Spot's answers and calorie estimates can be wrong. They are not medical advice. See the <a href="terms.html#ai-terms">Terms of Use</a>.</p>
                 </section>
 
-                <section>
+                <section id="social">
+                    <h2>Friends, Hardmode and Gym Dash</h2>
+
+                    <h3>Friends and shared streaks</h3>
+                    <p>You can share a streak with a friend, one friend per streak and up to three streaks at once. To invite someone or accept an invite, you first need Back up with Apple. There is no chat, no friend search and no push notification.</p>
+                    <ul>
+                        <li><strong>Before you invite,</strong> the app shows what your friend will see: your twin's name, its level and whether you kept the day. Nothing is created until you tap "Create invite link".</li>
+                        <li><strong>What we store for an invite:</strong> a one-time 8-character code that works for 7 days, and a card with your twin's name (cut to 20 characters), look, level and last kept day. The invite link opens a small page on Firebase Hosting that shows the code and a button to open the app. It sets no cookies and runs no analytics.</li>
+                        <li><strong>When a streak is shared,</strong> each of you can see the other's twin name, look, level and last kept day, plus the shared streak counters (current count, best count and the results of recent days). Your friend can't see your workouts, exercises, weights, body values, photos or gems.</li>
+                        <li><strong>To decide whether you both kept a day,</strong> our server reads each member's progress records. The result is a verdict for the shared streak, not a copy of your records.</li>
+                        <li><strong>Twin card in invites.</strong> By default, an invite message includes a picture of your twin card, and you can switch that off. The picture goes only to the app you choose and is never uploaded to us.</li>
+                        <li><strong>Safety.</strong> Twin names are checked against a word list. You can report your friend's twin name or behavior (a report stores the reason, who reported whom, the streak, the twin name at the time and the date), block them, or leave the streak. Reports are only visible to us.</li>
+                        <li>We also keep rate-limit counters (such as how many invites or reports you made today) and your block list, in a record only the server can read.</li>
+                    </ul>
+
+                    <h3>Hardmode</h3>
+                    <p>Hardmode is optional. When it is on, each workout needs a gym photo taken with Gymtwin's own camera (you can't pick one from your library).</p>
+                    <ul>
+                        <li><strong>The photo never leaves your phone.</strong> It is saved without metadata (such as location) in the app's private folder, excluded from backups. It is removed after 90 days, or sooner if you delete it from your Profile or use Delete my data. We don't upload it, analyze it or show it to anyone, including friends.</li>
+                        <li><strong>What our servers get</strong> are records that Hardmode started or ended and that a photo was taken for a workout (the workout ID and the time), as part of your progress log. While you are in Hardmode, our server reads your log about once an hour to decide whether you kept each Hardmode day, and writes the verdict (for example "died" or "cleared") for you. Before it judges, it checks with RevenueCat that your subscription is active.</li>
+                        <li>This verdict is an automated decision about a game. It has no legal or similarly significant effect on you.</li>
+                    </ul>
+
+                    <h3>Gym Dash</h3>
+                    <p>Gym Dash, the game you can play during a rest timer, runs entirely on your phone. It saves only your best distance, in the app's preferences on the device. It sends nothing and reads none of your progress.</p>
+                </section>
+
+                <section id="not">
                     <h2>What we don't do</h2>
                     <ul>
                         <li>No ads and no advertising software in the app.</li>
                         <li>No tracking. We don't track you across apps or websites owned by other companies and we don't access the advertising identifier (IDFA), so Gymtwin never asks for permission to track you.</li>
-                        <li>No analytics software. If that ever changes, we'll update this policy first.</li>
+                        <li>No analytics or attribution software. The only third-party software in the app is Firebase (Authentication, Firestore, Cloud Functions, App Check and Crashlytics) and RevenueCat. If that ever changes, we'll update this policy first.</li>
                         <li>No selling or renting of your data, and no sharing it for advertising.</li>
+                        <li>No access to your location, contacts, photo library or microphone.</li>
+                        <li>No Apple Health data in iCloud, and no health data in analytics or crash reports.</li>
                     </ul>
                 </section>
 
-                <section>
-                    <h2>Service providers</h2>
-                    <p>These companies process data for us, under their own terms, to run Gymtwin. They may store it in the United States and other countries.</p>
-                    <table class="data-table">
-                        <thead>
-                            <tr><th scope="col">Provider</th><th scope="col">What they do for Gymtwin</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="https://firebase.google.com/support/privacy">Google Firebase</a> (Google LLC)</td>
-                                <td>Anonymous sign-in and Apple account linking, storing your progress, deleting your account, request verification (App Check) and crash reports (Crashlytics).</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.revenuecat.com/privacy">RevenueCat</a> (RevenueCat, Inc.)</td>
-                                <td>Checking whether your subscription is active.</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.apple.com/legal/privacy/">Apple</a></td>
-                                <td>Sign in with Apple, App Store payments, App Attest, and Apple Health on your device.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <section id="providers">
+                    <h2>Companies that help us</h2>
+                    <p>These companies act as our service providers. They process data for us, under their own terms, only to run Gymtwin.</p>
+                    <div class="table-wrap">
+                        <table class="data-table data-table--stack">
+                            <thead>
+                                <tr><th scope="col">Provider</th><th scope="col">What they do for Gymtwin</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Provider"><a href="https://firebase.google.com/support/privacy">Google Firebase</a> (Google LLC)</td>
+                                    <td data-label="What they do for Gymtwin">Anonymous sign-in and Apple account linking (Authentication), storing your progress, friends and Hardmode records (Firestore), running our server code including the Spot relay, friend invites, Hardmode verdicts and account deletion (Cloud Functions, in Google Cloud's us-central1 region), request verification with Apple App Attest (App Check), crash reports (Crashlytics), the invite link page (Hosting), and holding our secret keys and operational logs (Google Cloud).</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider"><a href="https://openai.com/policies/privacy-policy/">OpenAI</a> (OpenAI, L.L.C. and its affiliates)</td>
+                                    <td data-label="What they do for Gymtwin">Writes Spot's replies, estimates meals from photos and writes programs, from requests that our server forwards after you consent. See the Spot section for what is sent and how long OpenAI keeps it.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider"><a href="https://www.revenuecat.com/privacy">RevenueCat</a> (RevenueCat, Inc.)</td>
+                                    <td data-label="What they do for Gymtwin">Checks whether your subscription or free trial is active, for the app and for our server.</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider"><a href="https://www.apple.com/legal/privacy/">Apple</a></td>
+                                    <td data-label="What they do for Gymtwin">Sign in with Apple, App Store payments and subscriptions (StoreKit), App Attest, Apple Health on your device, and the iOS share sheet and notifications.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>We may also disclose information if the law requires it, to protect people's safety, or to enforce our Terms. If Gymtwin were ever sold or merged, your data could move to the new owner, who would have to honor this policy.</p>
                 </section>
 
-                <section>
+                <section id="transfers">
+                    <h2>International transfers</h2>
+                    <p>Our providers store and process data in the United States and other countries, which may have different data protection laws from yours. Our server code runs in Google Cloud's us-central1 region (Iowa, USA). When personal data from the European Economic Area, the United Kingdom or Switzerland is transferred, we rely on the safeguards our providers offer, such as the EU-US Data Privacy Framework (and its UK and Swiss extensions) where the provider is certified, and the European Commission's Standard Contractual Clauses (with the UK addendum) otherwise. You can contact us for more information.</p>
+                </section>
+
+                <section id="retention">
                     <h2>How long we keep data</h2>
-                    <ul>
-                        <li><strong>Account and progress:</strong> as long as your account exists, until you use Delete my data.</li>
-                        <li><strong>Crash reports:</strong> Crashlytics keeps them for 90 days.</li>
-                        <li><strong>Purchase records:</strong> RevenueCat and Apple keep transaction records as long as they need them to manage subscriptions and meet legal, tax and accounting duties. Email us if you want your RevenueCat record deleted.</li>
-                        <li><strong>Support emails:</strong> as long as we need them to help you.</li>
-                    </ul>
+                    <div class="table-wrap">
+                        <table class="data-table data-table--stack">
+                            <thead>
+                                <tr><th scope="col">Data</th><th scope="col">How long</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td data-label="Data">Account, progress records, body values you typed in, gem and shop records, Hardmode records and verdicts, block list</td><td data-label="How long">As long as your account exists, until you use Delete my data.</td></tr>
+                                <tr><td data-label="Data">Shared streak records and member cards</td><td data-label="How long">While the streak exists. Your card is removed when you leave or delete your account. A streak with no members left is deleted.</td></tr>
+                                <tr><td data-label="Data">Invites</td><td data-label="How long">An invite works for 7 days. Used and expired invites are removed 30 days after they expire. A used invite no longer holds your card.</td></tr>
+                                <tr><td data-label="Data">Reports</td><td data-label="How long">180 days. A report you filed is also erased when you delete your account. If you are the person reported, the twin name saved in the report is erased when you delete your account, and the rest of the report expires after 180 days.</td></tr>
+                                <tr><td data-label="Data">AI consent record and the short-lived subscription check</td><td data-label="How long">As long as your account exists. The subscription check is repeated about every 10 minutes while you use AI.</td></tr>
+                                <tr><td data-label="Data">AI usage counters</td><td data-label="How long">Daily counters for 45 days and monthly counters for 90 days.</td></tr>
+                                <tr><td data-label="Data">Your Spot messages, photos and training summary on our servers</td><td data-label="How long">Not stored.</td></tr>
+                                <tr><td data-label="Data">Requests at OpenAI</td><td data-label="How long">Up to 30 days for abuse monitoring, then deleted. Not used to train models.</td></tr>
+                                <tr><td data-label="Data">Server operational logs (no content, hashed account ID)</td><td data-label="How long">A short period set in our Google Cloud project (30 days by default).</td></tr>
+                                <tr><td data-label="Data">Crash reports</td><td data-label="How long">Crashlytics keeps them for 90 days.</td></tr>
+                                <tr><td data-label="Data">Hardmode gym photos (on your phone)</td><td data-label="How long">90 days, or until you delete them.</td></tr>
+                                <tr><td data-label="Data">Spot chat, food log and AI programs (on your phone)</td><td data-label="How long">Until you delete them in Settings, use Delete my data, or delete the app.</td></tr>
+                                <tr><td data-label="Data">Purchase records</td><td data-label="How long">RevenueCat and Apple keep transaction records as long as they need them to manage subscriptions and meet legal, tax and accounting duties.</td></tr>
+                                <tr><td data-label="Data">Support emails</td><td data-label="How long">As long as we need them to help you.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p>Deleting the app removes the data on your phone but not the copy on our servers, so use Delete my data first. If you backed up with Apple, you can also reinstall, choose "I have a backup", and delete from there. Without a backup, the server copy is tied only to a random ID that we can't link back to you.</p>
                 </section>
 
                 <section id="delete">
                     <h2>Deleting your data</h2>
-                    <p>In Gymtwin, open <strong>Settings</strong> (or the subscription screen) and tap <strong>Delete my data</strong>, then confirm. This permanently deletes your account and all of your progress records and body values from our servers, revokes the Sign in with Apple link if you set one up, and erases Gymtwin's data on your phone. It can't be undone.</p>
-                    <p>Deleting your data doesn't cancel your subscription; manage that in your Apple ID settings. Data in Apple Health stays in Apple Health. If you can't use the app, email us and we'll help.</p>
+                    <p>In Gymtwin, open <strong>Settings</strong> (or the subscription screen) and tap <strong>Delete my data</strong>, then confirm. This:</p>
+                    <ul>
+                        <li>permanently deletes your account on our servers, including every progress record and body value, your AI settings, consent and usage records, your Hardmode records and verdicts, and your block list;</li>
+                        <li>removes you from shared streaks, deletes your invites and reports you filed, and removes the twin name saved in reports about you;</li>
+                        <li>revokes the Sign in with Apple link, if you set one up;</li>
+                        <li>erases Gymtwin's data on your phone, including your Spot chat, food log, programs, Hardmode photos, widget data, Gym Dash score and reminders.</li>
+                    </ul>
+                    <p>It can't be undone. Deleting your data doesn't cancel your subscription; manage that in your Apple Account settings. Data in Apple Health stays in Apple Health. If you can't use the app, email us and we'll help.</p>
+                    <p>RevenueCat and Apple keep their own purchase records. To have RevenueCat delete its record of your purchases, email us. Crash reports expire after 90 days and requests at OpenAI after 30 days.</p>
                 </section>
 
-                <section>
-                    <h2>Your rights</h2>
-                    <p>Depending on where you live (for example under the GDPR, the UK GDPR or US state laws such as the CCPA), you may have the right to access, correct, delete or get a copy of your personal data, to object to or restrict how it's used, and to withdraw consent. Email us to use these rights. You can also complain to your local data protection authority. We don't sell or share personal information as those laws define it.</p>
+                <section id="rights">
+                    <h2>Your choices and rights</h2>
+
+                    <h3>Choices in the app and in iOS</h3>
+                    <ul>
+                        <li><strong>Spot:</strong> Settings, then AI &amp; privacy, then Use Spot. Turning it off withdraws your consent and stops all sending to OpenAI.</li>
+                        <li><strong>Apple Health values for Spot:</strong> Settings, then AI &amp; privacy, then Share Apple Health values.</li>
+                        <li><strong>Delete AI data on the device:</strong> Settings, then AI &amp; privacy (clear chat, delete food log, delete programs, or delete all).</li>
+                        <li><strong>Hardmode photos:</strong> delete them one at a time or all at once from your Profile. You can leave Hardmode at any time.</li>
+                        <li><strong>Friends:</strong> leave, block or report from a shared streak.</li>
+                        <li><strong>Permissions:</strong> Health, camera and notifications can be changed any time in iOS Settings. Live Activities can be switched off in iOS Settings.</li>
+                    </ul>
+
+                    <h3>Your rights</h3>
+                    <p>Depending on where you live (for example under the GDPR, the UK GDPR or US state laws such as the CCPA), you may have the right to access, correct, delete or get a copy of your personal data, to object to or restrict how it is used, and to withdraw consent at any time. Withdrawing consent doesn't affect what we did before. You can also complain to your local data protection authority, such as the Information Commissioner's Office in the UK or your national authority in the EEA.</p>
+                    <p>To use these rights, email <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a>. Delete my data in the app is the quickest way to delete. Because accounts are anonymous, we may need your help to find yours, for example by confirming details only the account holder would know. We aim to answer within 30 days. We don't charge for requests unless they are clearly unfounded or excessive, and we won't treat you differently for making one.</p>
+
+                    <h3>California and other US states</h3>
+                    <p>We collect these categories of personal information: identifiers (random user ID, install ID, Apple Account identifier if you link one); commercial information (subscription status); health and fitness information, which some laws treat as sensitive or "consumer health data" (workouts, body values you typed in, and Apple Health values that stay on your phone); photos (a meal photo sent once for analysis, which we don't store); user content (twin name, chat messages processed by OpenAI); and technical data (crash reports, device model, iOS version). We collect it from you, your device and Apple, for the purposes described above. We disclose it only to the service providers listed above. We <strong>don't sell</strong> personal information, we <strong>don't share</strong> it for cross-context behavioral advertising, and we use sensitive information only to provide Gymtwin as you asked. You can ask us to tell you what we hold, delete it or correct it. You can use an authorized agent; we may ask for proof of authorization.</p>
                 </section>
 
-                <section>
-                    <h2>Children</h2>
+                <section id="bases">
+                    <h2>Why we may use your data</h2>
+                    <p>Where the GDPR or UK GDPR applies, our legal bases are:</p>
+                    <ul>
+                        <li><strong>Contract:</strong> providing the app and your subscription, including your progress, backup, friends, Hardmode and gems.</li>
+                        <li><strong>Consent:</strong> reading Apple Health data, using Spot and sending data to OpenAI, sharing Health values with Spot, using the camera, sending notifications, and sharing your twin card. Health and fitness data are special category data, and where we process them we rely on your explicit consent. You give consent in the app or in iOS and can withdraw it at any time.</li>
+                        <li><strong>Legitimate interests:</strong> keeping Gymtwin stable and secure (crash reports, App Check, rate limits and cost limits), preventing abuse, and moderating reports.</li>
+                        <li><strong>Legal obligation:</strong> keeping records we are required to keep, for example for tax and accounting.</li>
+                    </ul>
+                </section>
+
+                <section id="children">
+                    <h2>Children and age</h2>
                     <p>Gymtwin is meant for people aged 13 and over and is not directed to children under 13. We don't knowingly collect personal data from children under 13. If you believe a child under 13 has used Gymtwin, contact us and we'll help delete the data.</p>
+                    <p>Spot, Food and AI programs are for ages 18 and up. The app checks the birth year in your profile. If you are under 18, or haven't given a birth year, these features are off, no data is sent to OpenAI, and Gymtwin doesn't work out a calorie target or body-fat bonus for you. Your birth year is something you tell the app and the app can't verify it.</p>
                 </section>
 
-                <section>
+                <section id="security">
                     <h2>Security</h2>
-                    <p>Data travels encrypted between the app and our providers. Each account can only read and write its own records, and our servers check that requests come from a genuine copy of the app. No system is perfectly secure, but we limit what we collect so there's less to protect.</p>
+                    <p>Data travels encrypted between the app and our providers, and Google Cloud encrypts stored data. Each account can only read and write its own records, and the rules of our database refuse anything outside the app's own format, including Apple Health body values. Our server checks that requests come from a genuine copy of the app (Firebase App Check with Apple App Attest). AI records and reports can be read and written only by our server, and only our server can write a Hardmode verdict. The OpenAI key and our other secret keys are kept in Google Cloud Secret Manager and never in the app. Hardmode photos and Spot chats stay in private folders on your phone. No system is perfectly secure, but we limit what we collect so there is less to protect.</p>
                 </section>
 
-                <section>
+                <section id="website">
                     <h2>This website</h2>
-                    <p>This website has no cookies, analytics or ads. Fonts load from Google Fonts, so your browser connects to Google's servers. The contact form doesn't send anything by itself; it opens your own email app with your message. The site is hosted on GitHub Pages, which may log basic technical data such as IP addresses.</p>
+                    <p>This website has no cookies, analytics or ads. Fonts load from Google Fonts, so your browser connects to Google's servers. The contact form doesn't send anything by itself; it opens your own email app with your message. The site is hosted on GitHub Pages, which may log basic technical data such as IP addresses. The friend invite link page is hosted on Firebase Hosting, which may log the same.</p>
                 </section>
 
-                <section>
+                <section id="changes">
                     <h2>Changes to this policy</h2>
-                    <p>If we change this policy, we'll update this page and the effective date at the top. If a change affects how Apple Health data is handled, we'll update this page before the app changes.</p>
+                    <p>If we change this policy, we'll update this page and the effective date at the top. If a change affects how Apple Health data is handled or sends new kinds of data to an AI provider, we'll update this page before the app changes, and the app will ask for your consent again before Spot sends anything under the new terms.</p>
                 </section>
 
-                <section>
+                <section id="contact">
                     <h2>Contact</h2>
                     <p>Asım Can Yağız, developer of Gymtwin<br>
                     Email: <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a></p>

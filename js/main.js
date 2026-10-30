@@ -108,7 +108,7 @@ function initNavbar() {
 function initScrollReveal() {
     const targets = document.querySelectorAll(
         '.section-head, .ladder-item, .rule, .miss, .feature, .privacy-band, .final-cta, ' +
-        '.legal-body > section, .faq details, .contact-card'
+        '.faq details, .contact-card'
     );
     targets.forEach((el) => el.classList.add('reveal'));
 
