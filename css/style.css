@@ -500,7 +500,7 @@ h1, h2, h3, h4 { font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; co
 .legal-body > section:last-of-type { border-bottom: 0; }
 .legal-body h2 { font-size: 1.45rem; margin-bottom: 10px; }
 .legal-body h3 { font-size: 1.1rem; margin: 16px 0 6px; }
-.legal-body p + p, .legal-body ul + p, .legal-body table + p { margin-top: 10px; }
+.legal-body p + p, .legal-body ul + p, .legal-body table + p, .legal-body .table-wrap + p { margin-top: 10px; }
 .legal-body ul { margin: 10px 0 0 1.2em; display: grid; gap: 6px; }
 .legal-body li::marker { color: var(--orange); }
 .legal-body strong { color: var(--ink); font-weight: 800; }

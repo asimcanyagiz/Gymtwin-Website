@@ -73,6 +73,7 @@
                         <li>Gym Twin counts which screens people reach with Google Analytics for Firebase. It is anonymous: no name, no health values, no age and no advertising ID. It is on by default, and you can turn it off in Settings, under Usage data, once you are in the app.</li>
                         <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), no attribution software, and we never sell your data.</li>
                         <li>Delete my data in Settings erases your account and progress from our servers and everything Gym Twin keeps on your phone.</li>
+                        <li>Washington's My Health My Data Act and similar US state laws ask for a separate policy about health and fitness data. Ours is the <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a>.</li>
                     </ul>
                 </div>
 
@@ -193,6 +194,12 @@
                                     <td data-label="Anyone else">Never</td>
                                 </tr>
                                 <tr>
+                                    <td data-label="Data">Age range from Apple (under 13, 13 to 17 or 18 and over), where your iPhone supports it</td>
+                                    <td data-label="On your iPhone">In memory only, never saved</td>
+                                    <td data-label="Our servers">Never</td>
+                                    <td data-label="Anyone else">Never</td>
+                                </tr>
+                                <tr>
                                     <td data-label="Data">Widget and Live Activity data, Gym Dash best distance, reminders</td>
                                     <td data-label="On your iPhone">Yes</td>
                                     <td data-label="Our servers">Never</td>
@@ -223,7 +230,7 @@
                     <ul>
                         <li>Workouts you save: start time, duration, the body regions you trained, how hard it felt, whether the time came from a live workout, Apple Health or manual entry, and any exercises with sets, weight and reps. If a workout was pre-filled from an Apple Health workout, we also store that Health workout's identifier so the same workout never counts twice.</li>
                         <li>Rest-day check-ins, and a note when you remove a workout.</li>
-                        <li>Your training plan (the weekdays you train), your goal and your training experience.</li>
+                        <li>Your training plan (the weekdays you train), your goal and your training experience, plus the optional answers you give in onboarding: a goal weight, how active you are day to day, where you train, how long a session usually lasts, the body areas you want to focus on, and what motivates you or gets in your way.</li>
                         <li>Your twin's look and name (the name can be up to 60 characters) and your starting level, plus progress bonuses the app grants.</li>
                         <li>Streak freezes and level shields you use, and the gem, quest, shop and boost records described below.</li>
                         <li>When your subscription became active or inactive, so the app can pause your streak while you're not subscribed.</li>
@@ -233,7 +240,7 @@
                     <p>Without Back up with Apple, these records are tied to the anonymous account on this phone and can't be moved to a new phone.</p>
 
                     <h3>Body values you enter yourself</h3>
-                    <p>If you type in your height, weight, body fat percentage, sex or birth year in Gym Twin instead of reading them from Apple Health, those values are stored with your progress. We use them for your starting level, bonuses and calorie target. We use your birth year to check whether you are 18 or older, which decides whether Spot, Food and AI programs are available and whether Gym Twin works out a calorie target for you.</p>
+                    <p>If you type in your height, weight, body fat percentage (or accept a body-fat range or estimate in onboarding), sex or birth year in Gym Twin instead of reading them from Apple Health, those values are stored with your progress. We use them for your starting level, bonuses and calorie target. We use your birth year, together with the age range Apple shares where your iPhone supports it (see Children and age), to check whether you are 18 or older, which decides whether Spot, Food and AI programs are available and whether Gym Twin works out a calorie target for you.</p>
 
                     <h3>Gems, quests, shop, medals and achievements</h3>
                     <p>You earn gems from workouts, daily quests, medals and achievements, and spend them in the Shop on streak freezes, level shields and XP boosts. Gems are never sold for money. Each gem grant, shop purchase and boost activation is a record in your progress log (the source and amount of a grant, the item and price of a purchase), so a restore brings back the same balance. These records hold game values only and no health data.</p>
@@ -256,7 +263,7 @@
                     </ul>
 
                     <h3>Crash reports</h3>
-                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation that Firebase creates. Crashlytics and Firebase Sessions also send details about each app session, such as the app's bundle ID, iOS version, SDK version, network type and how long the app was in the background. We don't attach your user ID, your health or fitness data, or custom logs to crash reports. When anonymous usage statistics are on, a crash report may also include the last few usage events (event names and their values: screen and step IDs, plan names, yes or no). Crash reports are not part of the usage statistics switch, and the app has no separate switch for them. Crash reporting is switched off in development builds.</p>
+                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation that Firebase creates. Crashlytics and Firebase Sessions also send details about each app session, such as the app's bundle ID, iOS version, SDK version, network type and how long the app was in the background. We don't attach your user ID, your health or fitness data, or custom logs to crash reports. When anonymous usage statistics are on, a crash report may also include the last few usage events (event names and their values: screen and step IDs, plan names, where a purchase started, results such as allowed, denied, restored or linked, and yes or no values). Crash reports are not part of the usage statistics switch, and the app has no separate switch for them. Crash reporting is switched off in development builds, and the app stops sending crash reports while the age block described under Children and age lasts.</p>
 
                     <h3>Widgets, Live Activities and reminders</h3>
                     <ul>
@@ -293,7 +300,7 @@
                     <ul>
                         <li><strong>Only with your consent.</strong> Before Spot's first use, a screen lists what is sent and asks you to tap Allow. Nothing is sent before that. You can turn Spot off at any time in Settings, then AI &amp; privacy, and the server refuses requests once consent is withdrawn.</li>
                         <li><strong>Only when you ask.</strong> Spot never runs in the background. A request is sent when you send a chat message, ask for a suggestion or program, or tap "Estimate calories" on a meal photo.</li>
-                        <li><strong>Only for adults.</strong> Spot, Food and programs are for ages 18 and up, based on the birth year in your profile. If you are under 18, or have not given a birth year, these features stay off and Gym Twin's rule-based features still work.</li>
+                        <li><strong>Only for adults.</strong> Spot, Food and programs are for ages 18 and up, based on the birth year in your profile and, on iPhones that support it, the age range Apple shares. If either one says you are under 18, or you have not given a birth year, these features stay off and Gym Twin's rule-based features still work.</li>
                         <li><strong>Only on a free trial or active subscription.</strong> Our server checks this with RevenueCat before each request.</li>
                     </ul>
 
@@ -473,12 +480,12 @@
                     <p>To use these rights, email <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a>. Delete my data in the app is the quickest way to delete. Because accounts are anonymous, we may need your help to find yours, for example by confirming details only the account holder would know. We aim to answer within 30 days. We don't charge for requests unless they are clearly unfounded or excessive, and we won't treat you differently for making one.</p>
 
                     <h3>California and other US states</h3>
-                    <p>We collect these categories of personal information: identifiers (random user ID, install ID, Apple's identifier for vendors, the random app-instance ID that Google Analytics creates, Apple Account identifier if you link one); commercial information (subscription status); health and fitness information, which some laws treat as sensitive or "consumer health data" (workouts, body values you typed in, and Apple Health values that stay on your phone); photos (a meal photo sent once for analysis, which we don't store); user content (twin name, chat messages processed by OpenAI); app activity (the screens and steps you reach, as anonymous usage statistics); approximate location (a country and city that Google Analytics works out from your IP address); and technical data (crash reports, device model, iOS version, device identifiers). We collect it from you, your device and Apple, for the purposes described above. We disclose it only to the service providers listed above. We <strong>don't sell</strong> personal information, we <strong>don't share</strong> it for cross-context behavioral advertising, and we use sensitive information only to provide Gym Twin as you asked. You can ask us to tell you what we hold, delete it or correct it. You can use an authorized agent; we may ask for proof of authorization. In Apple's App Privacy label, Device ID and Purchase History are marked as linked to you, with analytics as one of the purposes, because the label lists each data type once and our install ID, RevenueCat's records and your purchase records are tied to your account, while the usage statistics sent to Google Analytics are not.</p>
+                    <p>We collect these categories of personal information: identifiers (random user ID, install ID, Apple's identifier for vendors, the random app-instance ID that Google Analytics creates, Apple Account identifier if you link one); commercial information (subscription status); health and fitness information, which some laws treat as sensitive or "consumer health data" (workouts, body values you typed in, and Apple Health values that stay on your phone); photos (a meal photo sent once for analysis, which we don't store); user content (twin name, chat messages processed by OpenAI); app activity (the screens and steps you reach, as anonymous usage statistics); approximate location (a country and city that Google Analytics works out from your IP address); and technical data (crash reports, device model, iOS version, device identifiers). We collect it from you, your device and Apple, for the purposes described above. We disclose it only to the service providers listed above. We <strong>don't sell</strong> personal information, we <strong>don't share</strong> it for cross-context behavioral advertising, and we use sensitive information only to provide Gym Twin as you asked. You can ask us to tell you what we hold, delete it or correct it. You can use an authorized agent; we may ask for proof of authorization. Our <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a> covers the health and fitness data in detail, as Washington's My Health My Data Act and similar laws require. In Apple's App Privacy label, Device ID and Purchase History are marked as linked to you, with analytics as one of the purposes, because the label lists each data type once and our install ID, RevenueCat's records and your purchase records are tied to your account, while the usage statistics sent to Google Analytics are not.</p>
                 </section>
 
                 <section id="bases">
                     <h2>Why we may use your data</h2>
-                    <p>Where the GDPR or UK GDPR applies, our legal bases are:</p>
+                    <p>Gym Twin is offered in the App Store in the European Economic Area, the United Kingdom and many other countries and regions, not only the United States. Where the GDPR or UK GDPR applies, our legal bases are:</p>
                     <ul>
                         <li><strong>Contract:</strong> providing the app and your subscription, including your progress, backup, friends, Hardmode and gems.</li>
                         <li><strong>Consent:</strong> reading Apple Health data, using Spot and sending data to OpenAI, sharing Health values with Spot, using the camera, sending notifications, and sharing your twin card. Health and fitness data are special category data, and where we process them we rely on your explicit consent. You give consent in the app or in iOS and can withdraw it at any time.</li>
@@ -489,9 +496,26 @@
 
                 <section id="children">
                     <h2>Children and age</h2>
-                    <p>Gym Twin is meant for people aged 13 and over and is not directed to children under 13. We don't knowingly collect personal data from children under 13. If you believe a child under 13 has used Gym Twin, contact us and we'll help delete the data.</p>
-                    <p>Spot, Food and AI programs are for ages 18 and up. The app checks the birth year in your profile. If you are under 18, or haven't given a birth year, these features are off, no data is sent to OpenAI, and Gym Twin doesn't work out a calorie target or body-fat bonus for you. Your birth year is something you tell the app and the app can't verify it.</p>
-                    <p>The app counts a birth year as the youngest age that person could be: someone who says they were born in 2013 counts as born on 31 December 2013. The birth year pickers offer no year that would make you under 13. If a birth year stored in Gym Twin, or read from Apple Health, makes you under 13, Gym Twin shows a screen that blocks the app. Nothing is deleted, and Delete my data stays available on that screen. While the block lasts, the app stops syncing to our servers, planning reminders, publishing your friends card, showing Live Activities, updating the widget snapshot, sending anything to your Apple Watch and sending usage statistics. The block does not pause crash reports. A missing birth year doesn't block the app. Spot, Food, AI programs, calorie targets and the monthly body-fat bonus follow the same rule: they need the youngest possible age to be 18 or more, so they stay off when the birth year is missing. Anonymous usage statistics carry no age or other personal value, so they are on by default for every age the app allows (13 and over), and anyone can switch them off.</p>
+                    <p>Gym Twin is meant for people aged 13 and over and is not directed to children under 13. We don't knowingly keep personal data from children under 13: the app asks for a birth year and blocks anyone whose answer makes them under 13, as described below. If you believe a child under 13 has used Gym Twin, contact us and we'll help delete the data.</p>
+                    <p>Spot, Food and AI programs are for ages 18 and up. The app checks the birth year in your profile and, on iPhones that support it, the age range Apple shares (see Apple's age range below). If either one says you are under 18, or you haven't given a birth year, these features are off, no data is sent to OpenAI, and Gym Twin doesn't work out a calorie target or body-fat bonus for you. Your birth year is something you tell the app and the app can't verify it.</p>
+                    <p>The app counts a birth year as the youngest age that person could be: someone who says they were born in 2013 counts as born on 31 December 2013. The birth year question offers every year, including years that make you under 13, so a child who gives the true answer is blocked. If a birth year stored in Gym Twin, or read from Apple Health, makes you under 13, or Apple's age range says you are under 13, Gym Twin shows a screen that blocks the app. When the block starts, the app:</p>
+                    <ul>
+                        <li>deletes the copy of your data on our servers (your backup);</li>
+                        <li>stops sending crash reports and usage statistics;</li>
+                        <li>keeps the data on your phone until you use Delete my data, which stays available on the block screen.</li>
+                    </ul>
+                    <p>While the block lasts, the app also stops syncing to our servers, planning reminders, publishing your friends card, showing Live Activities, updating the widget snapshot and sending anything to your Apple Watch.</p>
+                    <p>A missing birth year doesn't block the app. Spot, Food, AI programs, calorie targets and the monthly body-fat bonus follow the same rule: they need the youngest possible age to be 18 or more, so they stay off when the birth year is missing. Anonymous usage statistics carry no age or other personal value, so they are on by default for every age the app allows (13 and over), and anyone can switch them off.</p>
+
+                    <h3>Apple's age range</h3>
+                    <p>On iPhones with iOS 26.2 or later, Gym Twin can ask Apple for your age range, using Apple's Declared Age Range feature, with the cut-offs 13 and 18. Depending on where you are, Apple shares the range itself or asks you first, and you may be able to say no. Apple gives the app a range only (under 13, 13 to 17, or 18 and over), never your birth date. Gym Twin keeps the answer in memory while the app runs. It never saves it, never sends it to our servers or to anyone else, and never puts it in usage statistics or crash reports. It uses it only to apply the age rules on this page:</p>
+                    <ul>
+                        <li>If Apple says you are under 13, the block above applies.</li>
+                        <li>If Apple says you are 13 to 17, Spot, Food, AI programs, calorie targets and the body-fat bonus stay off, even if your birth year says 18 or more.</li>
+                        <li>If Apple would share your age range and you decline, Gym Twin treats you as 13 to 17 for those features until you share it. A "Share age range" option in the app opens your iPhone's settings for that.</li>
+                        <li>If your iPhone doesn't support the feature, or Apple doesn't ask for your age range where you are, only the birth year you gave is used.</li>
+                    </ul>
+                    <p>The stricter of the two always applies. Apple's answer never loosens a rule, and Gym Twin never changes the birth year you entered.</p>
                 </section>
 
                 <section id="security">
@@ -534,6 +558,7 @@
                     <a href="index.html#features">Features</a>
                     <a href="contact.html">Support</a>
                     <a href="privacy.html" aria-current="page">Privacy Policy</a>
+                    <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a>
                     <a href="terms.html">Terms of Use</a>
                 </nav>
             </div>
