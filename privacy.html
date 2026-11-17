@@ -55,7 +55,7 @@
         <div class="container">
             <h1>Privacy <span class="highlight">Policy</span></h1>
             <p>What Gym Twin collects, what stays on your iPhone, and how to delete it.</p>
-            <span class="updated">Effective date: October 30, 2026</span>
+            <span class="updated">Effective date: November 17, 2026</span>
         </div>
     </section>
 
@@ -70,7 +70,8 @@
                         <li>Your workouts, check-ins, plan, gems and any body values you type in are backed up under a random account ID. We don't ask for your name or email address.</li>
                         <li>Spot, Food and AI programs send data to OpenAI only after you allow it, only when you ask, and only for adults on a free trial or subscription. Your chats, meals and programs are kept on your phone.</li>
                         <li>Hardmode gym photos never leave your phone. A meal photo is sent once for analysis and is never stored.</li>
-                        <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), no analytics software, and we never sell your data.</li>
+                        <li>Gym Twin counts which screens people reach with Google Analytics for Firebase. It is anonymous: no name, no health values, no age and no advertising ID. It is on by default, and you can turn it off in Settings, under Usage data.</li>
+                        <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), no attribution software, and we never sell your data.</li>
                         <li>Delete my data in Settings erases your account and progress from our servers and everything Gym Twin keeps on your phone.</li>
                     </ul>
                 </div>
@@ -180,6 +181,12 @@
                                     <td data-label="Anyone else">Firebase Crashlytics (Google)</td>
                                 </tr>
                                 <tr>
+                                    <td data-label="Data">Anonymous usage statistics (which screens and steps you reach, which plan you pick, no personal values)</td>
+                                    <td data-label="On your iPhone">Yes, a few "already sent" flags</td>
+                                    <td data-label="Our servers">No</td>
+                                    <td data-label="Anyone else">Google Analytics for Firebase (Google), not linked to your account, unless you turn off "Share anonymous usage data"</td>
+                                </tr>
+                                <tr>
                                     <td data-label="Data">Widget and Live Activity data, Gym Dash best distance, reminders</td>
                                     <td data-label="On your iPhone">Yes</td>
                                     <td data-label="Our servers">Never</td>
@@ -202,7 +209,7 @@
                     <ul>
                         <li><strong>Anonymous account.</strong> When you first open Gym Twin, the app creates an anonymous account with Google Firebase Authentication. It is identified by a random user ID. We don't ask for your name, email address or phone number.</li>
                         <li><strong>Back up with Apple (optional).</strong> If you choose it, we link your Sign in with Apple identity to the same account, so you can restore your progress on another iPhone and use friends. Apple gives us a unique identifier for your Apple Account. Gym Twin asks Apple for no name and no email address.</li>
-                        <li><strong>Install ID.</strong> The app creates a random identifier when it's installed and attaches it to each record you save, so we can tell which of your devices wrote it. It is not the advertising identifier (IDFA) and it is never used for tracking.</li>
+                        <li><strong>Install ID.</strong> The app creates a random identifier when it's installed and attaches it to each record you save, so we can tell which of your devices wrote it. It is not the advertising identifier (IDFA) and it is never used for tracking. Software inside the app creates random identifiers of its own too: Google Analytics' app-instance ID (see Anonymous usage statistics below) and Firebase's installation ID. Turning off "Share anonymous usage data" or using Delete my data resets the Google Analytics one on your phone.</li>
                     </ul>
 
                     <h3>Your workouts and progress</h3>
@@ -226,11 +233,24 @@
                     <p>You earn gems from workouts, daily quests, medals and achievements, and spend them in the Shop on streak freezes, level shields and XP boosts. Gems are never sold for money. Each gem grant, shop purchase and boost activation is a record in your progress log (the source and amount of a grant, the item and price of a purchase), so a restore brings back the same balance. These records hold game values only and no health data.</p>
 
                     <h3>Subscriptions and purchases</h3>
-                    <p>Subscriptions are sold by Apple through the App Store. We use RevenueCat to check whether your subscription or free trial is active. RevenueCat receives your Gym Twin user ID, your App Store purchase information (such as the product, purchase and renewal dates, and transaction identifiers) and technical data its software sends with each request (such as IP address, App Store country, app version and device model). We don't send RevenueCat your name, email address or any health or fitness data. We never see your payment card details.</p>
+                    <p>Subscriptions are sold by Apple through the App Store. We use RevenueCat to check whether your subscription or free trial is active. RevenueCat receives your Gym Twin user ID, Apple's identifier for vendors (IDFV, a random ID Apple gives to all apps from the same developer on your device; it is not the advertising identifier), your App Store purchase information (such as the product, purchase and renewal dates, and transaction identifiers) and technical data its software sends with each request (such as IP address, App Store country, app version and device model). We don't send RevenueCat your name, email address or any health or fitness data. We never see your payment card details.</p>
                     <p>When you use Spot or Hardmode, our server also asks RevenueCat whether your account has an active trial or subscription and keeps a short-lived copy of the answer (active or not, trial or paid, expiry time) with your AI settings record.</p>
 
+                    <h3 id="usage-statistics">Anonymous usage statistics</h3>
+                    <p>Gym Twin uses Google Analytics for Firebase, a service from Google, to count how people move through the app. We use the counts to see where people drop out of onboarding and the paywall and to improve Gym Twin. It is on by default, and you can turn it off at any time.</p>
+                    <ul>
+                        <li><strong>What the app sends.</strong> A fixed list of 24 events that we chose. They say which onboarding, paywall and offer screens you reached or skipped; whether you tapped the button that fills your details from Apple Health (the tap only, no values); how you made your commitment (hold or accessibility); whether you allowed reminders; which plan was selected, started, cancelled, failed or bought, and whether a trial started; the result of a restore; whether you chose trial reminders or to back up your progress; and whether your twin was created and a first workout or rest day was saved. Each event carries only a screen or step ID or a yes or no value.</li>
+                        <li><strong>What Google's software adds by itself.</strong> Its standard events (first open, session start and engagement time), each with a random app-instance ID, the app version, iOS version, device model, language, session and engagement times, and an approximate country and city that Google works out from your IP address (Google masks the address).</li>
+                        <li><strong>What it never gets.</strong> Your name, age or birth year, goals, body values, workouts, Apple Health data, account ID, advertising identifier or any user property. Gym Twin sets no user ID and no user property in Google Analytics, and it doesn't use the advertising identifier (IDFA) or Apple's identifier for vendors there. The data is not linked to your account.</li>
+                        <li><strong>Why.</strong> Only to understand where people drop out and to improve Gym Twin. Not for ads: Google Signals and ad personalization are off, and nothing in it is used to track you.</li>
+                        <li><strong>Who receives it.</strong> Google LLC, as our service provider. We keep Google's optional data-sharing settings off, so Google doesn't use this data for its own products and services.</li>
+                        <li><strong>On your phone.</strong> A few of the events are sent only once. The app remembers on your phone that it already sent them.</li>
+                        <li><strong>How long.</strong> Google Analytics keeps the data for up to 14 months and then deletes it automatically.</li>
+                        <li><strong>Turn it off.</strong> In Settings, under Usage data, switch off "Share anonymous usage data". This stops sharing at once and resets the Google Analytics app-instance ID and anything waiting to be sent on your phone. It can't pull back what Google already received: that data isn't linked to your account, so we can't find yours, and it expires as described below. The switch doesn't affect crash reports. Delete my data also resets the ID and puts the switch back to its default, which is on.</li>
+                    </ul>
+
                     <h3>Crash reports</h3>
-                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation that Firebase creates. We don't attach your user ID, your health or fitness data, or custom logs to crash reports. Crash reporting is switched off in development builds.</p>
+                    <p>If the app crashes, Firebase Crashlytics sends us a crash report with technical details about the crash and your device, such as the device model, iOS version, app version and an identifier for the app installation that Firebase creates. Crashlytics and Firebase Sessions also send details about each app session, such as the app's bundle ID, iOS version, SDK version, network type and how long the app was in the background. We don't attach your user ID, your health or fitness data, or custom logs to crash reports. When anonymous usage statistics are on, a crash report may also include the last few usage events (screen and step IDs only). Crash reports are not part of the usage statistics switch, and the app has no separate switch for them. Crash reporting is switched off in development builds.</p>
 
                     <h3>Widgets, Live Activities and reminders</h3>
                     <ul>
@@ -337,9 +357,9 @@
                     <ul>
                         <li>No ads and no advertising software in the app.</li>
                         <li>No tracking. We don't track you across apps or websites owned by other companies and we don't access the advertising identifier (IDFA), so Gym Twin never asks for permission to track you.</li>
-                        <li>No analytics or attribution software. The only third-party software in the app is Firebase (Authentication, Firestore, Cloud Functions, App Check and Crashlytics) and RevenueCat. If that ever changes, we'll update this policy first.</li>
+                        <li>No attribution software. The only analytics is Google Analytics for Firebase, used for the anonymous usage statistics described above, with Google Signals and ad personalization off. The only third-party software in the app is Firebase (Authentication, Firestore, Cloud Functions, App Check, Crashlytics and Google Analytics) and RevenueCat. If that ever changes, we'll update this policy first.</li>
                         <li>No selling or renting of your data, and no sharing it for advertising.</li>
-                        <li>No access to your location, contacts, photo library or microphone.</li>
+                        <li>No access to your device's location, contacts, photo library or microphone. (Google Analytics works out an approximate country and city from your IP address, as described above.)</li>
                         <li>No Apple Health data in iCloud, and no health data in analytics or crash reports.</li>
                     </ul>
                 </section>
@@ -356,6 +376,10 @@
                                 <tr>
                                     <td data-label="Provider"><a href="https://firebase.google.com/support/privacy">Google Firebase</a> (Google LLC)</td>
                                     <td data-label="What they do for Gym Twin">Anonymous sign-in and Apple account linking (Authentication), storing your progress, friends and Hardmode records (Firestore), running our server code including the Spot relay, friend invites, Hardmode verdicts and account deletion (Cloud Functions, in Google Cloud's us-central1 region), request verification with Apple App Attest (App Check), crash reports (Crashlytics), the invite link page (Hosting), and holding our secret keys and operational logs (Google Cloud).</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Provider"><a href="https://firebase.google.com/support/privacy">Google Analytics for Firebase</a> (Google LLC)</td>
+                                    <td data-label="What they do for Gym Twin">Counts anonymous usage statistics, such as which screens and steps people reach, so we can see where they drop out and improve Gym Twin. It never receives your name, health values or account ID. See Anonymous usage statistics above.</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Provider"><a href="https://openai.com/policies/privacy-policy/">OpenAI</a> (OpenAI, L.L.C. and its affiliates)</td>
@@ -398,6 +422,7 @@
                                 <tr><td data-label="Data">Requests at OpenAI</td><td data-label="How long">Up to 30 days for abuse monitoring, then deleted. Not used to train models.</td></tr>
                                 <tr><td data-label="Data">Server operational logs (no content, hashed account ID)</td><td data-label="How long">A short period set in our Google Cloud project (30 days by default).</td></tr>
                                 <tr><td data-label="Data">Crash reports</td><td data-label="How long">Crashlytics keeps them for 90 days.</td></tr>
+                                <tr><td data-label="Data">Anonymous usage statistics (Google Analytics)</td><td data-label="How long">Up to 14 months, then Google deletes them automatically. They are not linked to your account.</td></tr>
                                 <tr><td data-label="Data">Hardmode gym photos (on your phone)</td><td data-label="How long">90 days, or until you delete them.</td></tr>
                                 <tr><td data-label="Data">Spot chat, food log and AI programs (on your phone)</td><td data-label="How long">Until you delete them in Settings, use Delete my data, or delete the app.</td></tr>
                                 <tr><td data-label="Data">Purchase records</td><td data-label="How long">RevenueCat and Apple keep transaction records as long as they need them to manage subscriptions and meet legal, tax and accounting duties.</td></tr>
@@ -415,10 +440,11 @@
                         <li>permanently deletes your account on our servers, including every progress record and body value, your AI settings, consent and usage records, your Hardmode records and verdicts, and your block list;</li>
                         <li>removes you from shared streaks, deletes your invites and reports you filed, and removes the twin name saved in reports about you;</li>
                         <li>revokes the Sign in with Apple link, if you set one up;</li>
-                        <li>erases Gym Twin's data on your phone, including your Spot chat, food log, programs, Hardmode photos, widget data, Gym Dash score and reminders.</li>
+                        <li>erases Gym Twin's data on your phone, including your Spot chat, food log, programs, Hardmode photos, widget data, Gym Dash score and reminders;</li>
+                        <li>resets the usage statistics on your phone: the Google Analytics app-instance ID starts over and the "Share anonymous usage data" switch goes back to its default, which is on.</li>
                     </ul>
                     <p>It can't be undone. Deleting your data doesn't cancel your subscription; manage that in your Apple Account settings. Data in Apple Health stays in Apple Health. If you can't use the app, email us and we'll help.</p>
-                    <p>RevenueCat and Apple keep their own purchase records. To have RevenueCat delete its record of your purchases, email us. Crash reports expire after 90 days and requests at OpenAI after 30 days.</p>
+                    <p>RevenueCat and Apple keep their own purchase records. To have RevenueCat delete its record of your purchases, email us. Crash reports expire after 90 days and requests at OpenAI after 30 days. Usage statistics that Google Analytics already received aren't linked to your account, so Delete my data can't remove them; they expire after up to 14 months.</p>
                 </section>
 
                 <section id="rights">
@@ -428,6 +454,7 @@
                     <ul>
                         <li><strong>Spot:</strong> Settings, then AI &amp; privacy, then Use Spot. Turning it off withdraws your consent and stops all sending to OpenAI.</li>
                         <li><strong>Apple Health values for Spot:</strong> Settings, then AI &amp; privacy, then Share Apple Health values.</li>
+                        <li><strong>Usage statistics:</strong> Settings, then Usage data, then Share anonymous usage data. Turning it off stops sharing from your phone. It doesn't remove what Google already received, and it doesn't change crash reports.</li>
                         <li><strong>Delete AI data on the device:</strong> Settings, then AI &amp; privacy (clear chat, delete food log, delete programs, or delete all).</li>
                         <li><strong>Hardmode photos:</strong> delete them one at a time or all at once from your Profile. You can leave Hardmode at any time.</li>
                         <li><strong>Friends:</strong> leave, block or report from a shared streak.</li>
@@ -439,7 +466,7 @@
                     <p>To use these rights, email <a href="mailto:apputopiacy@gmail.com">apputopiacy@gmail.com</a>. Delete my data in the app is the quickest way to delete. Because accounts are anonymous, we may need your help to find yours, for example by confirming details only the account holder would know. We aim to answer within 30 days. We don't charge for requests unless they are clearly unfounded or excessive, and we won't treat you differently for making one.</p>
 
                     <h3>California and other US states</h3>
-                    <p>We collect these categories of personal information: identifiers (random user ID, install ID, Apple Account identifier if you link one); commercial information (subscription status); health and fitness information, which some laws treat as sensitive or "consumer health data" (workouts, body values you typed in, and Apple Health values that stay on your phone); photos (a meal photo sent once for analysis, which we don't store); user content (twin name, chat messages processed by OpenAI); and technical data (crash reports, device model, iOS version). We collect it from you, your device and Apple, for the purposes described above. We disclose it only to the service providers listed above. We <strong>don't sell</strong> personal information, we <strong>don't share</strong> it for cross-context behavioral advertising, and we use sensitive information only to provide Gym Twin as you asked. You can ask us to tell you what we hold, delete it or correct it. You can use an authorized agent; we may ask for proof of authorization.</p>
+                    <p>We collect these categories of personal information: identifiers (random user ID, install ID, Apple's identifier for vendors, the random app-instance ID that Google Analytics creates, Apple Account identifier if you link one); commercial information (subscription status); health and fitness information, which some laws treat as sensitive or "consumer health data" (workouts, body values you typed in, and Apple Health values that stay on your phone); photos (a meal photo sent once for analysis, which we don't store); user content (twin name, chat messages processed by OpenAI); app activity (the screens and steps you reach, as anonymous usage statistics); approximate location (a country and city that Google Analytics works out from your IP address); and technical data (crash reports, device model, iOS version, device identifiers). We collect it from you, your device and Apple, for the purposes described above. We disclose it only to the service providers listed above. We <strong>don't sell</strong> personal information, we <strong>don't share</strong> it for cross-context behavioral advertising, and we use sensitive information only to provide Gym Twin as you asked. You can ask us to tell you what we hold, delete it or correct it. You can use an authorized agent; we may ask for proof of authorization.</p>
                 </section>
 
                 <section id="bases">
@@ -448,7 +475,7 @@
                     <ul>
                         <li><strong>Contract:</strong> providing the app and your subscription, including your progress, backup, friends, Hardmode and gems.</li>
                         <li><strong>Consent:</strong> reading Apple Health data, using Spot and sending data to OpenAI, sharing Health values with Spot, using the camera, sending notifications, and sharing your twin card. Health and fitness data are special category data, and where we process them we rely on your explicit consent. You give consent in the app or in iOS and can withdraw it at any time.</li>
-                        <li><strong>Legitimate interests:</strong> keeping Gym Twin stable and secure (crash reports, App Check, rate limits and cost limits), preventing abuse, and moderating reports.</li>
+                        <li><strong>Legitimate interests:</strong> keeping Gym Twin stable and secure (crash reports, App Check, rate limits and cost limits), preventing abuse, moderating reports, and understanding where people drop out of onboarding and the paywall through anonymous usage statistics, which you can switch off in Settings at any time.</li>
                         <li><strong>Legal obligation:</strong> keeping records we are required to keep, for example for tax and accounting.</li>
                     </ul>
                 </section>
@@ -457,6 +484,7 @@
                     <h2>Children and age</h2>
                     <p>Gym Twin is meant for people aged 13 and over and is not directed to children under 13. We don't knowingly collect personal data from children under 13. If you believe a child under 13 has used Gym Twin, contact us and we'll help delete the data.</p>
                     <p>Spot, Food and AI programs are for ages 18 and up. The app checks the birth year in your profile. If you are under 18, or haven't given a birth year, these features are off, no data is sent to OpenAI, and Gym Twin doesn't work out a calorie target or body-fat bonus for you. Your birth year is something you tell the app and the app can't verify it.</p>
+                    <p>The app counts a birth year as the youngest age that person could be: someone who says they were born in 2013 counts as born on 31 December 2013. The birth year pickers offer no year that would make you under 13. If a birth year stored in Gym Twin, or read from Apple Health, makes you under 13, Gym Twin shows a screen that blocks the app. Nothing is deleted, and Delete my data stays available on that screen. While the block lasts, the app stops syncing to our servers, planning reminders, publishing your friends card, showing Live Activities, updating the widget snapshot and sending usage statistics. A missing birth year doesn't block the app. Spot, Food, AI programs, calorie targets and the monthly body-fat bonus follow the same rule: they need the youngest possible age to be 18 or more, so they stay off when the birth year is missing. Anonymous usage statistics carry no age or other personal value, so they are on by default for every age the app allows (13 and over), and anyone can switch them off.</p>
                 </section>
 
                 <section id="security">
@@ -466,7 +494,7 @@
 
                 <section id="website">
                     <h2>This website</h2>
-                    <p>This website has no cookies, analytics or ads. Fonts load from Google Fonts, so your browser connects to Google's servers. The contact form doesn't send anything by itself; it opens your own email app with your message. The site is hosted on GitHub Pages, which may log basic technical data such as IP addresses. The friend invite link page is hosted on Firebase Hosting, which may log the same.</p>
+                    <p>This website (not the app) has no cookies, analytics or ads. Fonts load from Google Fonts, so your browser connects to Google's servers. The contact form doesn't send anything by itself; it opens your own email app with your message. The site is hosted on GitHub Pages, which may log basic technical data such as IP addresses. The friend invite link page is hosted on Firebase Hosting, which may log the same.</p>
                 </section>
 
                 <section id="changes">
