@@ -71,6 +71,7 @@
                         <li>Spot, Food and AI programs send data to OpenAI only after you allow it, only when you ask, and only for adults on a free trial or subscription. Your chats and meals are kept on your phone.</li>
                         <li>Hardmode gym photos never leave your phone. A meal photo, or the photos from a gym scan, are sent once for analysis and are never stored.</li>
                         <li>Your gyms, their equipment, cover photos, places and programs are kept on your phone. Location is used only while you use the app, it is read on your phone, and it is never sent to us.</li>
+                        <li>Weekly leagues are optional and for ages 18 and up. Other players in your league see your twin's name, look, level, medals, achievements and League XP, never your workouts, weight or body data. League notifications use Apple's push service.</li>
                         <li>Gym Twin counts which screens people reach with Google Analytics for Firebase. It is anonymous: no name, no health values, no age and no advertising ID. It is on by default, and you can turn it off in Settings, under Usage data, once you are in the app.</li>
                         <li>No ads, no tracking across apps and websites, no advertising identifier (IDFA), no attribution software, and we never sell your data.</li>
                         <li>Delete my data in Settings erases your account and progress from our servers and everything Gym Twin keeps on your phone.</li>
@@ -88,6 +89,7 @@
                         <li><a href="#ai">Spot, Food and programs (AI)</a></li>
                         <li><a href="#gyms">Gyms and location</a></li>
                         <li><a href="#social">Friends, Hardmode and Gym Dash</a></li>
+                        <li><a href="#leagues">Weekly leagues</a></li>
                         <li><a href="#not">What we don't do</a></li>
                         <li><a href="#providers">Companies that help us</a></li>
                         <li><a href="#transfers">International transfers</a></li>
@@ -190,6 +192,18 @@
                                     <td data-label="Anyone else">The friend you share a streak with sees your twin name, look, level and last kept day</td>
                                 </tr>
                                 <tr>
+                                    <td data-label="Data">Weekly leagues: twin name, look, level, medals, achievements, League XP and rank</td>
+                                    <td data-label="On your iPhone">Yes</td>
+                                    <td data-label="Our servers">Yes</td>
+                                    <td data-label="Anyone else">Other players in your league see your twin name, look, level, medals, achievements, League XP and rank. Never your workouts or body data</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Data">Push notification token (weekly leagues)</td>
+                                    <td data-label="On your iPhone">Yes, only if you turn on league notifications</td>
+                                    <td data-label="Our servers">Yes, with your account ID</td>
+                                    <td data-label="Anyone else">Apple, which delivers the notifications</td>
+                                </tr>
+                                <tr>
                                     <td data-label="Data">Subscription status</td>
                                     <td data-label="On your iPhone">Yes</td>
                                     <td data-label="Our servers">A copy, to check access</td>
@@ -290,7 +304,7 @@
                         <li><strong>Widgets and Live Activities</strong> show information stored on your device. The app keeps a small snapshot (your twin's name and level, your streak, whether today is kept, and how much XP you earned each day) in a file shared between the app and its widgets on your phone. It is excluded from backups and is never uploaded. It holds no body measurements.</li>
                         <li><strong>On the Lock Screen,</strong> a workout Live Activity can show your twin's name, level and streak, timers, the current exercise name and the set's weight and reps. Anyone who can see your Lock Screen can see it. The "Always Show" option is off unless you switch it on, and you can switch Live Activities off in iOS Settings.</li>
                         <li><strong>Apple Watch.</strong> If you use the Gym Twin watch app, your iPhone sends it your twin's name and level, your streak and, during a workout, the exercise, weight and reps. It travels over Apple's iPhone-to-watch connection only, nothing is sent to our servers, and Delete my data or an age block clears it.</li>
-                        <li><strong>Reminders</strong> (streak reminders, the rest timer, the backup reminder, Hardmode warnings and shared-streak reminders) are scheduled on your phone as local notifications. We don't run a push notification service and we don't collect a push token.</li>
+                        <li><strong>Reminders</strong> (streak reminders, the rest timer, the backup reminder, Hardmode warnings and shared-streak reminders) are scheduled on your phone as local notifications. League notifications are the only push notifications; see Weekly leagues below.</li>
                     </ul>
 
                     <h3>Sharing cards</h3>
@@ -307,6 +321,7 @@
                     <p>There are two things to know:</p>
                     <ul>
                         <li>When you save a workout whose time was pre-filled from an Apple Health workout, the saved Gym Twin workout (its start time and duration, the Health workout's identifier, and what you entered) is stored with your progress like any other workout, so your streak and XP can be restored. Nothing else from Apple Health is stored on our servers.</li>
+                        <li>If you join a weekly league, that saved workout time can count toward your League XP, and other players see only the League XP total. No Health value is shown to anyone.</li>
                         <li>If you turn on <strong>Share Apple Health values</strong> in Settings, then under AI &amp; privacy, Spot may send your Health height, weight, body fat, sex and age (worked out from your date of birth; the date itself isn't sent) to OpenAI when it needs them. This is a separate choice from using Spot, it is off by default, and you can turn it off at any time. See the Spot section below.</li>
                     </ul>
                     <p>We never sell data from Apple Health or share it with third parties for advertising or any other purpose. You can change Gym Twin's access at any time in the Health app: tap your profile picture, then Apps, then Gym Twin.</p>
@@ -387,7 +402,7 @@
                     <h2>Friends, Hardmode and Gym Dash</h2>
 
                     <h3>Friends and shared streaks</h3>
-                    <p>You can share a streak with a friend, one friend per streak and up to three streaks at once. To invite someone or accept an invite, you first need Back up with Apple. There is no chat, no friend search and no push notification.</p>
+                    <p>You can share a streak with a friend, one friend per streak and up to three streaks at once. To invite someone or accept an invite, you first need Back up with Apple. There is no chat and no friend search.</p>
                     <ul>
                         <li><strong>Before you invite,</strong> the app shows what your friend will see: your twin's name, its level and whether you kept the day. Nothing is created until you tap "Create invite link".</li>
                         <li><strong>What we store for an invite:</strong> a one-time 8-character code that works for 7 days, and a card with your twin's name (cut to 20 characters), look, level and last kept day. The invite link opens a small page on Firebase Hosting that shows the code and a button to open the app. It sets no cookies and runs no analytics.</li>
@@ -408,6 +423,42 @@
 
                     <h3>Gym Dash</h3>
                     <p>Gym Dash, the game you can play during a rest timer, runs entirely on your phone. It saves only your best distance, in the app's preferences on the device. It sends nothing and reads none of your progress.</p>
+                </section>
+
+                <section id="leagues">
+                    <h2>Weekly leagues</h2>
+                    <p>Weekly leagues are optional and for people aged 18 and over. Each week you are placed in a group with other players and the Gym Twin crew, ranked by League XP, and moved up or down a league when the week ends. The top three get gems.</p>
+
+                    <h3>What other players see</h3>
+                    <ul>
+                        <li><strong>Your card:</strong> your twin's name (cut to 20 characters and checked against a word list), its look and level, which medals (7, 30, 100 and 365 days) and achievements you have earned, your League XP and your rank.</li>
+                        <li><strong>Never:</strong> your workouts, exercises, weights, body values, Apple Health values, photos, gems, streak or account details. Use a nickname, not your real name.</li>
+                        <li><strong>How long:</strong> a board is kept for 8 weeks. If you leave leagues or delete your data, your rows on stored boards become "Gym Twin user": your name, look, medals and achievements are removed, and only the score and rank stay so the board stays whole.</li>
+                    </ul>
+
+                    <h3>The Gym Twin crew</h3>
+                    <p>Every league group includes nine characters called the Gym Twin crew (animals and costumed characters). They are part of the game, not real people. Their scores are made up by the game and are not based on anyone's workouts.</p>
+
+                    <h3>How League XP is worked out</h3>
+                    <ul>
+                        <li>Our server works out League XP from your workout log: the minutes of your logged workouts, with the same limits for everyone (90 counted minutes a day and 630 a week). It leaves out boosts, the Hardmode bonus and the body-fat bonus. A workout whose time came from Apple Health can count.</li>
+                        <li>Other players see only the total, never the workouts behind it.</li>
+                        <li>When a week ends, our server checks with RevenueCat that your subscription or free trial is active. If it isn't, your result for that week is frozen: no promotion, no demotion and no gems.</li>
+                        <li>Our server looks for signs of cheating, for example a week at the daily limit every day or workout time that is mostly typed in. It keeps a record of those signals for 90 days and may place you in separate groups without telling you. This never changes a result that was already given.</li>
+                    </ul>
+
+                    <h3>League notifications</h3>
+                    <ul>
+                        <li>They are off until you turn them on, when someone passes you, in the last hours of the week and when the week's result is in. You choose which ones in Settings, and you can switch them off in iOS Settings.</li>
+                        <li>They are sent through Apple's push notification service. To send them, the app gives our server the token Apple creates for your phone, and we store it with your account ID. We don't use Firebase Cloud Messaging. The token is deleted when you leave leagues, when you delete your data, when Apple says it is no longer valid, or after 60 days without a refresh.</li>
+                        <li>A notification can show the name and picture of the player who passed you. iOS may keep that name in Siri suggestions and the share sheet on your phone; Gym Twin deletes those entries each time it opens.</li>
+                    </ul>
+
+                    <h3>Reporting, blocking and leaving</h3>
+                    <p>You can report a player's twin name or behavior, block them (their row shows as "Hidden twin" for you, you are not placed in a group with them again and they get no notification about you), or leave leagues in Settings. A report stores the reason, who reported whom, the board and row, the twin name at the time and the date. Reports are only visible to us and expire after 180 days. We can rename a player or remove them from leagues. We keep a record of which version of the league rules you accepted and when, and the IDs of the players you block (up to 200), so you are never placed in a group with them again.</p>
+
+                    <h3>Age</h3>
+                    <p>Leagues use the birth-year check described under Children and age: the birth year in your profile must make you 18 or over. If it is missing or under 18, leagues are off and nothing is sent. If you change it to under 18 while you are in a league, you are removed. Your birth year is something you tell the app and the app can't verify it.</p>
                 </section>
 
                 <section id="not">
@@ -433,7 +484,7 @@
                             <tbody>
                                 <tr>
                                     <td data-label="Provider"><a href="https://firebase.google.com/support/privacy">Google Firebase</a> (Google LLC)</td>
-                                    <td data-label="What they do for Gym Twin">Anonymous sign-in and Apple account linking (Authentication), storing your progress, friends and Hardmode records (Firestore), running our server code including the Spot relay, friend invites, Hardmode verdicts and account deletion (Cloud Functions, in Google Cloud's us-central1 region), request verification with Apple App Attest (App Check), crash reports (Crashlytics), the invite link page (Hosting), and holding our secret keys and operational logs (Google Cloud).</td>
+                                    <td data-label="What they do for Gym Twin">Anonymous sign-in and Apple account linking (Authentication), storing your progress, friends, Hardmode and league records (Firestore), running our server code including the Spot relay, friend invites, Hardmode verdicts, weekly leagues, league notifications and account deletion (Cloud Functions, in Google Cloud's us-central1 region), request verification with Apple App Attest (App Check), crash reports (Crashlytics), the invite link page (Hosting), and holding our secret keys and operational logs (Google Cloud).</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Provider"><a href="https://firebase.google.com/support/privacy">Google Analytics for Firebase</a> (Google LLC)</td>
@@ -449,7 +500,7 @@
                                 </tr>
                                 <tr>
                                     <td data-label="Provider"><a href="https://www.apple.com/legal/privacy/">Apple</a></td>
-                                    <td data-label="What they do for Gym Twin">Sign in with Apple, App Store payments and subscriptions (StoreKit), App Attest, Apple Health on your device, Apple Maps (MapKit) for gym and address search and map previews, the photo picker, and the iOS share sheet and notifications.</td>
+                                    <td data-label="What they do for Gym Twin">Sign in with Apple, App Store payments and subscriptions (StoreKit), App Attest, Apple Health on your device, Apple Maps (MapKit) for gym and address search and map previews, the photo picker, the iOS share sheet and notifications, and the Apple Push Notification service that delivers league notifications.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -483,6 +534,12 @@
                                 <tr><td data-label="Data">Age block markers on your phone (three yes-or-no notes: that an age block is in place, that an under-13 answer was given, and that a deletion on our servers is still owed)</td><td data-label="How long">The age block note stays until the block lifts or you use Delete my data. The under-13 answer note stays until you use Delete my data or the app finds a stored birth year that makes you 13 or over. The note that a deletion on our servers is still owed is removed once the deletion succeeds or the block lifts. None of them holds a year or an age, and none is sent anywhere.</td></tr>
                                 <tr><td data-label="Data">Anonymous usage statistics (Google Analytics)</td><td data-label="How long">Event-level data is kept for up to 14 months, then Google deletes it automatically. Counts without identifiers stay in Google's standard reports. The statistics are not linked to your account.</td></tr>
                                 <tr><td data-label="Data">Hardmode gym photos (on your phone)</td><td data-label="How long">90 days, or until you delete them.</td></tr>
+                                <tr><td data-label="Data">League boards and your league rows (card, League XP, rank)</td><td data-label="How long">8 weeks after the week ends. If you leave or delete your data, your name, look, medals and achievements are removed from them at once.</td></tr>
+                                <tr><td data-label="Data">League results (your rank, outcome and gems for each week)</td><td data-label="How long">As long as your account exists.</td></tr>
+                                <tr><td data-label="Data">League cheating-review records</td><td data-label="How long">90 days.</td></tr>
+                                <tr><td data-label="Data">Push notification token</td><td data-label="How long">Until you leave leagues or delete your data, 60 days after the last refresh, or until Apple says it is no longer valid.</td></tr>
+                                <tr><td data-label="Data">Your league after you leave</td><td data-label="How long">8 weeks, so you can rejoin where you were.</td></tr>
+                                <tr><td data-label="Data">League member record (the rules version you accepted and when, your block list, moderation flags)</td><td data-label="How long">Until you delete your data.</td></tr>
                                 <tr><td data-label="Data">Spot chat and food log (on your phone)</td><td data-label="How long">Until you delete them in Settings, use Delete my data, or delete the app.</td></tr>
                                 <tr><td data-label="Data">Gyms, cover photos and programs (on your phone)</td><td data-label="How long">Until you delete them, use Delete my data, or delete the app. A copy stays in your iPhone's iCloud backup, if you use one, under Apple's rules for that backup.</td></tr>
                                 <tr><td data-label="Data">Gym scan photos and video frames</td><td data-label="How long">Deleted from your phone when the scan is done. Not stored on our servers. Up to 30 days at OpenAI, like any request.</td></tr>
@@ -500,6 +557,7 @@
                     <ul>
                         <li>permanently deletes your account on our servers, including every progress record and body value, your AI settings, consent and usage records, your Hardmode records and verdicts, and your block list;</li>
                         <li>removes you from shared streaks, deletes your invites and reports you filed, and removes the twin name saved in reports about you;</li>
+                        <li>removes you from leagues: your rows on stored boards become "Gym Twin user", and your league results, push tokens and cheating-review records are deleted, along with your ID in other players' block lists;</li>
                         <li>revokes the Sign in with Apple link, if you set one up;</li>
                         <li>erases Gym Twin's data on your phone, including your Spot chat, food log, gyms, their cover photos and programs, Hardmode photos, widget data, Gym Dash score, reminders and the age block markers;</li>
                         <li>resets the usage statistics on your phone: the Google Analytics app-instance ID starts over and the "Share anonymous usage data" switch goes back to its default, which is on.</li>
@@ -520,6 +578,7 @@
                         <li><strong>Gyms:</strong> edit or delete a gym, its cover photo, its place and its programs in the Workouts tab.</li>
                         <li><strong>Hardmode photos:</strong> delete them one at a time or all at once from your Profile. You can leave Hardmode at any time.</li>
                         <li><strong>Friends:</strong> leave, block or report from a shared streak.</li>
+                        <li><strong>Leagues:</strong> leave leagues and choose which league notifications you get in Settings. League notifications can also be switched off in iOS Settings.</li>
                         <li><strong>Permissions:</strong> Health, camera, location and notifications can be changed any time in iOS Settings. Live Activities can be switched off in iOS Settings.</li>
                     </ul>
 
@@ -556,6 +615,7 @@
                     <p>The deletion on our servers is automatic. It shows no Sign in with Apple screen and asks a child to do nothing. Unlike Delete my data, which you start yourself, it does not revoke the Sign in with Apple link on Apple's side. If you had set that link up, you can remove it in your Apple Account settings. If our servers can't be reached, the app tries again the next time it opens. Until the deletion succeeds, the app keeps a yes-or-no marker on your phone saying that a deletion is still owed. It holds no year or age, it is never sent anywhere, and the app removes it once the deletion succeeds or the block lifts.</p>
                     <p>If you give a birth year under 13 while setting up the app, whether you pick it or Apple Health holds it, the app doesn't store the year, but it remembers on your phone that an under-13 answer was given, so closing and reopening the app doesn't let anyone answer again. That memory is a single yes-or-no marker. It holds no year, no age and no date, and it is never sent anywhere. It stays until you use Delete my data, or until the app finds a stored birth year that makes you 13 or over.</p>
                     <p>A missing birth year doesn't block the app. Spot, Food, AI programs, calorie targets and the monthly body-fat bonus follow the same rule: they need the youngest possible age to be 18 or more, so they stay off when the birth year is missing. Anonymous usage statistics carry no age or other personal value, so they are on by default for every age the app allows (13 and over), and anyone can switch them off.</p>
+                    <p>Weekly leagues are for ages 18 and up and use the same birth-year check. See Weekly leagues above.</p>
 
                     <h3>Apple's age range</h3>
                     <p>On iPhones with iOS 26.2 or later, Gym Twin can ask Apple for your age range, using Apple's Declared Age Range feature, with the cut-offs 13 and 18. Depending on where you are, Apple shares the range itself or asks you first, and you may be able to say no. Apple gives the app a range only (under 13, 13 to 17, or 18 and over), never your birth date. Gym Twin keeps the range in memory while the app runs. It never saves the range itself, never sends it to our servers or to anyone else, and never puts it in usage statistics or crash reports. If the range causes a block, the app keeps the same block markers on your phone that it keeps for any block (yes-or-no notes that a block started and that a deletion on our servers is still owed, with no range, year or age in them). Those markers never leave your phone. It uses the range only to apply the age rules on this page:</p>
@@ -570,7 +630,7 @@
 
                 <section id="security">
                     <h2>Security</h2>
-                    <p>Data travels encrypted between the app and our providers, and Google Cloud encrypts stored data. Each account can only read and write its own records, and the rules of our database refuse anything outside the app's own format, including Apple Health body values. Our server checks that requests come from a genuine copy of the app (Firebase App Check with Apple App Attest). AI records and reports can be read and written only by our server, and only our server can write a Hardmode verdict. The OpenAI key and our other secret keys are kept in Google Cloud Secret Manager and never in the app. Hardmode photos and Spot chats stay in private folders on your phone. No system is perfectly secure, but we limit what we collect so there is less to protect.</p>
+                    <p>Data travels encrypted between the app and our providers, and Google Cloud encrypts stored data. Each account can only read and write its own records, and the rules of our database refuse anything outside the app's own format, including Apple Health body values. Our server checks that requests come from a genuine copy of the app (Firebase App Check with Apple App Attest). AI records, league records and reports can be read and written only by our server, and only our server can write a Hardmode verdict or a league result. The OpenAI key and our other secret keys are kept in Google Cloud Secret Manager and never in the app. Hardmode photos and Spot chats stay in private folders on your phone. No system is perfectly secure, but we limit what we collect so there is less to protect.</p>
                 </section>
 
                 <section id="website">
