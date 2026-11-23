@@ -4,16 +4,16 @@ Marketing and legal website for **Gym Twin**, a gym streak tracker for iPhone. L
 rest-day check-in every day and your pixel-art gym twin grows through five levels, from Beginner to
 Beast Mode.
 
-- **Live site (GitHub Pages):** https://asimcanyagiz.github.io/Gymtwin-Website/
-- **Privacy policy:** https://asimcanyagiz.github.io/Gymtwin-Website/privacy.html
-- **Consumer health data privacy policy:** https://asimcanyagiz.github.io/Gymtwin-Website/consumer-health-data.html
-- **Terms of use:** https://asimcanyagiz.github.io/Gymtwin-Website/terms.html
-- **Support:** https://asimcanyagiz.github.io/Gymtwin-Website/contact.html
+- **Live site (GitHub Pages, custom domain):** https://gymtwins.com/
+- **Privacy policy:** https://gymtwins.com/privacy.html
+- **Consumer health data privacy policy:** https://gymtwins.com/consumer-health-data.html
+- **Terms of use:** https://gymtwins.com/terms.html
+- **Support:** https://gymtwins.com/contact.html
 - **App Store:** not live yet (the pages show a "coming soon" badge)
 
 ## Stack
 
-Pure HTML5, CSS3 and vanilla JavaScript. No frameworks, no build step, no custom domain (no CNAME).
+Pure HTML5, CSS3 and vanilla JavaScript. No frameworks, no build step. The custom domain `gymtwins.com` is set by the `CNAME` file (DNS at Namecheap: four GitHub Pages A records on `@` and a `www` CNAME to `asimcanyagiz.github.io`).
 
 - `index.html`: landing page (hero with a playable twin demo, five levels, streak rules, features including Spot, Food, programs, friends, Hardmode and Gym Dash, privacy summary, final call to action)
 - `contact.html`: support page (FAQ and a contact form)
@@ -30,5 +30,5 @@ Apple's official "Download on the App Store" badge linking to the app.
 
 ## Notes
 
-- All links and asset paths are relative, because the site is served from the `/Gymtwin-Website/` subpath.
+- Keep links and asset paths relative. The site is served from the root of `gymtwins.com`; the old `asimcanyagiz.github.io/Gymtwin-Website/` URLs redirect there.
 - Push to `main` to deploy.
