@@ -168,7 +168,7 @@ def program_page(d, t, names):
     gear = plan_gear(d, t)
     lv = LEVEL_PHRASE[t["level"]]
     answer = (f"{n} is {article(lv)} {lv} plan with {len(days)} workout days of about {t['minutes']} minutes each. "
-              + " ".join(f"Day {k + 1}, {day['title'].lower()}: {words(names[x['exerciseId']] for x in day['exercises'])}." for k, day in enumerate(days)))
+              + " ".join(f"Day {k + 1}, {day['title']}: {words(names[x['exerciseId']] for x in day['exercises'])}." for k, day in enumerate(days)))
     title = f"{n} Workout Plan: {len(days)} Days, Sets and Reps"
     desc = f"A {len(days)}-day {n.lower()} workout plan ({LEVEL[t['level']].lower()}, about {t['minutes']} minutes a session) with sets, reps, rest times and exercise swaps."
     rows = []
