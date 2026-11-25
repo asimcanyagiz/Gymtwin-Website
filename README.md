@@ -23,6 +23,25 @@ Pure HTML5, CSS3 and vanilla JavaScript. No frameworks, no build step. The custo
 - `js/web3forms.js`: contact form handler (opens the visitor's email app, same approach as the MoneyPot site)
 - `Assets/`: icon, social image, and pixel sprite sheets copied from the app (`Assets/sprites/`)
 
+## SEO and generated pages
+
+`exercises/` (96 form guides), `programs/` (the app's 8 plans), the four use-case pages
+(`workout-streak-tracker/`, `gym-consistency/`, `rest-day-streak/`, `workout-log-app/`), `sitemap.xml` and the
+support page's FAQ JSON-LD are generated. Never edit them by hand:
+
+```bash
+python3 tools/build.py --app ../Gymtwin   # regenerate everything from the app's JSON (omit --app to keep exercises/ and programs/)
+python3 tools/check_site.py              # CI runs this on every PR
+```
+
+- Exercise and program pages come from the app's `Gymtwin/Resources` files. The build refuses an
+  `exercise-guides.json` whose hash differs from the owner's sign-off, so only signed-off guides are published.
+  Rebuild after the app changes a guide, a template or the exercise art.
+- The use-case pages' copy lives in `tools/guides.py`. Every app fact there is also on the home page or the support
+  page; change them together.
+- Add a new page to the sitemap by running the build; `check_site.py` fails when the sitemap and the pages disagree.
+- Search Console: property `sc-domain:gymtwins.com` on meycasim@gmail.com.
+
 ## Going live on the App Store
 
 Set `APP_STORE_URL` at the top of `js/main.js`. Every element with `data-store-badge` then turns into
