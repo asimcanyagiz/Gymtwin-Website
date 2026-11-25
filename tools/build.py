@@ -97,6 +97,8 @@ def main():
         import exercises
         n = exercises.generate(pathlib.Path(args.app).resolve(), ROOT)
         print(f"exercises: {n} pages")
+    import guides
+    print(f"guides: {guides.generate(ROOT)} pages")
     print(f"faq: {build_faq_jsonld()} questions")
     print(f"sitemap: {build_sitemap()} urls")
 
