@@ -1,12 +1,12 @@
 /**
- * Gymtwin - Main JavaScript
+ * Gym Twins - Main JavaScript
  * Navigation, scroll reveals, smooth scrolling, the store badge swap,
  * and the "try it" twin demo in the hero. Vanilla JS, no dependencies.
  */
 
 /* ---------------------------------------------------------------
    App Store link
-   Gymtwin is not on the App Store yet. Leave this empty until launch;
+   Gym Twins is not on the App Store yet. Leave this empty until launch;
    when the app is live, paste its URL here (for example
    'https://apps.apple.com/app/id0000000000') and every
    [data-store-badge] element turns into Apple's official badge.
@@ -21,7 +21,7 @@ function initStoreBadges() {
 
     document.querySelectorAll('[data-store-badge]').forEach((badge) => {
         badge.setAttribute('href', APP_STORE_URL);
-        badge.setAttribute('aria-label', 'Download Gymtwin on the App Store');
+        badge.setAttribute('aria-label', 'Download Gym Twins on the App Store');
         badge.classList.add('is-live');
         const img = document.createElement('img');
         img.src = APPLE_BADGE_SRC;

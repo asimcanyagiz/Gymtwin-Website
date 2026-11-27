@@ -1,6 +1,6 @@
-# Gym Twin, landing site
+# Gym Twins, landing site
 
-Marketing and legal website for **Gym Twin**, a gym streak tracker for iPhone. Log a workout or a
+Marketing and legal website for **Gym Twins**, a gym streak tracker for iPhone. Log a workout or a
 rest-day check-in every day and your pixel-art gym twin grows through five levels, from Beginner to
 Beast Mode.
 
@@ -17,7 +17,7 @@ Pure HTML5, CSS3 and vanilla JavaScript. No frameworks, no build step. The custo
 
 - `index.html`: landing page (hero with a playable twin demo, five levels, streak rules, features including Spot, Food, programs, friends, Hardmode and Gym Dash, privacy summary, final call to action)
 - `contact.html`: support page (FAQ and a contact form)
-- `privacy.html` / `consumer-health-data.html` / `terms.html`: legal pages. `consumer-health-data.html` is the Consumer Health Data Privacy Policy that Washington's My Health My Data Act requires (linked from the home page footer and privacy.html). They must match what the app does with data and what the subscription offers (weekly with a 3-day free trial, yearly, monthly offer). Update them in the same change whenever the app's data flows or plans change; the app links to both (`LegalLinks.swift` in the Gym Twin repo)
+- `privacy.html` / `consumer-health-data.html` / `terms.html`: legal pages. `consumer-health-data.html` is the Consumer Health Data Privacy Policy that Washington's My Health My Data Act requires (linked from the home page footer and privacy.html). They must match what the app does with data and what the subscription offers (weekly with a 3-day free trial, yearly, monthly offer). Update them in the same change whenever the app's data flows or plans change; the app links to both (`LegalLinks.swift` in the Gym Twins repo)
 - `css/style.css`: single stylesheet, the app's Duolingo-style design tokens (orange `#FF9600`, Nunito)
 - `js/main.js`: navigation, scroll reveals, store badge swap, hero twin demo
 - `js/web3forms.js`: contact form handler (opens the visitor's email app, same approach as the MoneyPot site)

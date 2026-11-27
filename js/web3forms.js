@@ -1,6 +1,6 @@
 /**
- * Gymtwin contact form: mailto handler.
- * Opens the visitor's email client addressed to the Gymtwin support inbox.
+ * Gym Twins contact form: mailto handler.
+ * Opens the visitor's email client addressed to the Gym Twins support inbox.
  * No backend and no third-party service (keeps messages going straight to us).
  */
 (function () {
@@ -34,7 +34,7 @@
       return;
     }
 
-    var subject = "Gymtwin website message from " + name;
+    var subject = "Gym Twins website message from " + name;
     var body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
     var href =
       "mailto:" + SUPPORT_EMAIL +
