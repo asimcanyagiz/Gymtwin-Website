@@ -1,4 +1,4 @@
-"""The exercise library (exercises/) and the program pages (programs/), generated from the Gym Twin app's own data.
+"""The exercise library (exercises/) and the program pages (programs/), generated from the Gym Twins app's own data.
 
 Sources, all in <app>/Gymtwin/Resources: exercise-catalog.json (names, region, equipment), exercise-guides.json (the 96
 owner-signed-off guides), exercise-regions.json (what each muscle does), exercise-equipment.json (what each exercise needs),
@@ -36,7 +36,7 @@ def rest(sec):
 
 
 def load(app):
-    r = app / "Gymtwin" / "Resources"
+    r = app / "Gym Twins" / "Resources"
     j = lambda n: json.loads((r / n).read_text(encoding="utf-8"))
     swift = lambda p: dict(re.findall(r'case \.(\w+): String\(localized: "([^"]+)"\)', (app / p).read_text(encoding="utf-8")))
     guides_raw = (r / "exercise-guides.json").read_bytes()
@@ -108,7 +108,7 @@ def exercise_page(d, x, by_region, used_in):
       <div class="container ex-wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../">Exercises</a> › <a href="../#{x["primaryRegion"]}">{region}</a></nav>
         <header class="ex-head">
-          <div class="ex-art card"><img src="../img/{i}.png" alt="{e(n)}, drawn in the Gym Twin style" width="256" height="256"></div>
+          <div class="ex-art card"><img src="../img/{i}.png" alt="{e(n)}, drawn in the Gym Twins style" width="256" height="256"></div>
           <div>
             <span class="section-kicker">{region} · {e(gear)}</span>
             <h1>How to do {article(n)} {e(n.lower())}</h1>
@@ -121,7 +121,7 @@ def exercise_page(d, x, by_region, used_in):
         <section class="ex-block card"><h2>Muscles worked</h2><dl class="ex-muscles">{muscles}</dl></section>
         <section class="ex-block card"><h2>Equipment</h2><p>{e(equipment_text(d, i))}</p></section>
         {plans}
-        <aside class="ex-cta card"><div><h2>Log your {e(n.lower())} in Gym Twin</h2><p>Track sets, reps and weight, keep a daily gym streak, and watch your pixel twin grow. This guide is in the app too, and works offline.</p></div>{store_badge(2)}</aside>
+        <aside class="ex-cta card"><div><h2>Log your {e(n.lower())} in Gym Twins</h2><p>Track sets, reps and weight, keep a daily gym streak, and watch your pixel twin grow. This guide is in the app too, and works offline.</p></div>{store_badge(2)}</aside>
         <section class="ex-related"><h2>More {region.lower()} exercises</h2><ul class="ex-grid">{"".join(tile(f"../{y['id']}/", f"../img/{y['id']}.png", y["name"]) for y in related)}</ul></section>
         {NOTE}
       </div>
@@ -144,11 +144,11 @@ def exercises_hub(d, by_region):
       <p>{n} gym and home exercises, each with a step-by-step form guide, form tips and the muscles it works.</p>
       <p class="ex-jump">{jump}</p></div></section>
     <div class="container ex-wrap">{secs}
-      <aside class="ex-cta card"><div><h2>Put them in a plan</h2><p>See the <a href="../programs/">workout plans</a> built from these exercises, or log any of them in Gym Twin and keep your gym streak going.</p></div>{store_badge(1)}</aside>
+      <aside class="ex-cta card"><div><h2>Put them in a plan</h2><p>See the <a href="../programs/">workout plans</a> built from these exercises, or log any of them in Gym Twins and keep your gym streak going.</p></div>{store_badge(1)}</aside>
       {NOTE}
     </div>
 '''
-    return (head(f"Exercise Library: {n} Exercises with Form Guides | Gym Twin",
+    return (head(f"Exercise Library: {n} Exercises with Form Guides | Gym Twins",
                  f"Step-by-step form guides for {n} gym and home exercises: chest, back, shoulders, arms, legs and core, with muscles worked and form tips.",
                  "exercises/", 1, ld, og_type="website") + navbar(1, "exercises") + body + footer(1))
 
@@ -198,7 +198,7 @@ def program_page(d, t, names):
         </header>
         {"".join(rows)}
         <section class="ex-block card"><h2>Equipment</h2><p>{e(gear_html)} Each exercise lists a swap if your gym doesn't have the main one.</p></section>
-        <aside class="ex-cta card"><div><h2>Run this plan in Gym Twin</h2><p>{e(n)} is built into the app. Pick your training days, start a day as a live workout with a rest timer, and keep your gym streak going.</p></div>{store_badge(2)}</aside>
+        <aside class="ex-cta card"><div><h2>Run this plan in Gym Twins</h2><p>{e(n)} is built into the app. Pick your training days, start a day as a live workout with a rest timer, and keep your gym streak going.</p></div>{store_badge(2)}</aside>
         {NOTE}
       </div>
     </article>
@@ -216,11 +216,11 @@ def programs_hub(d):
       <p>{len(d["templates"])} free workout plans with sets, reps and rest times: full body, dumbbell only, bodyweight, push pull legs and more.</p></div></section>
     <div class="container ex-wrap">
       <ul class="pl-grid">{cards}</ul>
-      <aside class="ex-cta card"><div><h2>Every plan is in the app</h2><p>Gym Twin fits each plan to the equipment your gym has, and turns your training days into a daily streak.</p></div>{store_badge(1)}</aside>
+      <aside class="ex-cta card"><div><h2>Every plan is in the app</h2><p>Gym Twins fits each plan to the equipment your gym has, and turns your training days into a daily streak.</p></div>{store_badge(1)}</aside>
       {NOTE}
     </div>
 '''
-    return (head("Free Workout Plans: Full Body, PPL, Upper Lower | Gym Twin",
+    return (head("Free Workout Plans: Full Body, PPL, Upper Lower | Gym Twins",
                  f"{len(d['templates'])} free workout plans with sets, reps and rest: full body, machines, dumbbell only, bodyweight, push pull legs and upper lower.",
                  "programs/", 1, ld, og_type="website") + navbar(1, "programs") + body + footer(1))
 

@@ -19,7 +19,7 @@ def head(title, desc, canon, depth, ld=None, og_type="article", image="Assets/og
     <meta name="description" content="{e(desc)}">
     <link rel="canonical" href="{SITE}{canon}">
     <meta property="og:type" content="{og_type}">
-    <meta property="og:site_name" content="Gym Twin">
+    <meta property="og:site_name" content="Gym Twins">
     <meta property="og:url" content="{SITE}{canon}">
     <meta property="og:title" content="{e(title)}">
     <meta property="og:description" content="{e(desc)}">
@@ -45,9 +45,9 @@ def navbar(depth, active=None):
     <a href="#main" class="skip-link">Skip to content</a>
     <nav class="navbar" aria-label="Main">
         <div class="container navbar-container">
-            <a href="{up or './'}" class="navbar-brand" aria-label="Gym Twin home">
+            <a href="{up or './'}" class="navbar-brand" aria-label="Gym Twins home">
                 <img src="{up}Assets/icon.png" alt="" class="navbar-logo" width="38" height="38">
-                <span class="navbar-name">Gym Twin</span>
+                <span class="navbar-name">Gym Twins</span>
             </a>
             <div class="navbar-menu" id="navbarMenu">
 {links}
@@ -73,7 +73,7 @@ def footer(depth):
                 <div class="footer-brand">
                     <img src="{up}Assets/icon.png" alt="" class="footer-logo" width="44" height="44">
                     <div>
-                        <span class="footer-name">Gym Twin</span>
+                        <span class="footer-name">Gym Twins</span>
                         <span class="footer-tag">Gym streak tracker for iPhone</span>
                     </div>
                 </div>

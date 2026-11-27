@@ -3,7 +3,7 @@
 
     python3 tools/build.py [--app ../Gymtwin]
 
-- exercises/: the exercise library, from the Gym Twin app's JSON files (only with --app)
+- exercises/: the exercise library, from the Gym Twins app's JSON files (only with --app)
 - contact.html: the FAQPage JSON-LD block, read from the page's own <details> FAQ
 - sitemap.xml: every indexable page, lastmod from the last git commit that touched it
 
@@ -91,7 +91,7 @@ def build_faq_jsonld():
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--app", help="path to the Gym Twin app repository (regenerates exercises/)")
+    ap.add_argument("--app", help="path to the Gym Twins app repository (regenerates exercises/)")
     args = ap.parse_args()
     if args.app:
         import exercises
